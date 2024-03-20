@@ -4,6 +4,7 @@ const loadSarvices=()=>{
     .then((data) => displaySarvice(data))
     .catch((err) => console.error(err))
 }
+
 const displaySarvice=(services)=>{
     console.log(services);
     services.forEach((service)=>{
@@ -24,5 +25,54 @@ const displaySarvice=(services)=>{
         `;
         parent.appendChild(li);
     });
-}
+};
+
+
+const loadProducts=() => {
+    fetch("http://127.0.0.1:8000/product/list/")
+    .then((res)=>res.json())
+    .then((data) => displayProducts(data?. result));
+};
+
+const displayProducts=(products) => {
+    products?.forEach((product) => {
+        console.log(product);
+        const parent = document.getElementById(products);
+        const div = document.createElement("div");
+        div.classList.add("card");
+        div.innerHTML = `
+        <p><i class="fa-solid fa-heart"></i></p>
+                    <img src=${products?.images} class="card-img-top" loading="lazy" alt="...">
+                    <div class="card-body d-flex flex-column flex-md-row">
+                        <div class="flex-grow-1">
+                            <strong>Basketball Shoes</strong>
+                            <p class="card-text">${products?.title}</p>
+                            <p class="card-text">${products?.description}</p>
+                            <div class="card-text">${products?.price}</div>
+                            <div class="card-text">$${products?.price.toFixed(2)} <del>${products.price.toFixed(2)}</del> 15% off</div>
+                            <p class="card-rating">${products?.rating}⭐</p>
+                        </div>
+                    </div>
+        `;
+        parent.appendChild(div)
+    })
+};
+
+
+const loadCategories = () => {
+    fetch("http://127.0.0.1:8000/category/category_list/")
+    .then((res)=>res.json())
+    .then((data) => console.log(data));
+    // .then((data) => displayProducts(data?. result));
+};
+
+const displayCategories=(category) => {
+
+};
+
+
+
+
+
 loadSarvices();
+loadProducts();
