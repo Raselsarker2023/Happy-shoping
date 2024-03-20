@@ -62,17 +62,46 @@ const displayProducts=(products) => {
 const loadCategories = () => {
     fetch("http://127.0.0.1:8000/category/category_list/")
     .then((res)=>res.json())
-    .then((data) => console.log(data));
-    // .then((data) => displayProducts(data?. result));
+    .then((data) => {
+        data.forEach((item) =>{
+            const parent = getElementById("drop_category");
+            const li = document.createElement("li");
+            li.classList.add("dropdown-item");
+            li.innerText = item?.name;
+            parent.appendChild(li);
+        });
+    });
 };
 
-const displayCategories=(category) => {
 
+
+const loadReview = () => {
+    fetch("http://127.0.0.1:8000/review/list/")
+    .then((res)=>res.json())
+    .then((data) => displayReview(data));
 };
 
+const displayReview = (reviews) => {
+    reviews.forEach((review) => {
+        const parent = getElementById("review-container");
+        const div = document.createElement("div");
+        div.classList.add("review-card");
+        div.innerHTML = `
+        <img src="${review.images}" alt="review" />
+                <h4>${review.reviewer}</h4>
+                <p>
+                    ${review.body.slice(0, 150)}
+                </p>
+                <h6>${review.rating}</h6>
+        `;
+        parent.appendChild(div)
+    });
+};
 
 
 
 
 loadSarvices();
 loadProducts();
+loadCategories();
+loadReview();
