@@ -262,9 +262,7 @@
 /* product section start */
 
 .card-rating{
-  border: 1px solid gray;
-  width: 50px;
-  background-color: green;
+  
   color: white;
   padding-left: 1%;
 
@@ -373,7 +371,11 @@
 .btn:hover {
   background-color: #0056b3;
 }
-
+.card_img{
+  width: 300px;
+  height: 250px;
+  align-items: center;
+}
 /* Best Seller product section end */
 
 
