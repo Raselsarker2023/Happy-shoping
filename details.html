@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Product details page.</title>
     <!-- Add these links to include Bootstrap CSS and JS -->
 
@@ -16,309 +17,425 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="shortcut icon" href="images/favicon.png" type="">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="css/details.css">
-</head>
-<body>
-
-     <!-- navber section start -->
-     <div class="main-navbar shadow-sm sticky-top">
-        <div class="top-navbar">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name">Craftkart</h5>
-                    </div>
-                    <div class="col-md-5 my-auto">
-                        <form role="search">
-                            <div class="input-group">
-                                <input type="search" placeholder="Search your product" class="form-control" />
-                                <button class="btn bg-white btn_size" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-5 my-auto">
-                        <ul class="nav justify-content-end">
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="card.html">
-                                    <i class="fa fa-shopping-cart"></i> Cart (0)
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-heart"></i> Wishlist (0)
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user"></i> Username 
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="update_profile.html"><i class="fa fa-user"></i> Profile</a></li>
-
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <link rel="shortcut icon" href="images/favicon.png" type="" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/details.css" />
+  </head>
+  <body>
+    <!-- navber section start -->
+    <div class="main-navbar shadow-sm sticky-top">
+      <div class="top-navbar">
+        <div class="container-fluid">
+          <div class="row">
+            <div
+              class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block"
+            >
+              <h5 class="brand-name">Craftkart</h5>
             </div>
-        </div>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                    Craftkart
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            All Categories 
-                        </a>
-                        <ul id="drop_category" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="update_profile.html"><i class="fa fa-user"></i> Profile</a></li>
-
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-                        </ul>
+            <div class="col-md-5 my-auto">
+              <form role="search">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    placeholder="Search your product"
+                    class="form-control"
+                  />
+                  <button class="btn bg-white btn_size" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-5 my-auto">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link" href="card.html">
+                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa fa-heart"></i> Wishlist (0)
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-user"></i> Username
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="update_profile.html"
+                        ><i class="fa fa-user"></i> Profile</a
+                      >
                     </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">New Arrivals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Featured Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Electronics</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fashions</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Accessories</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="navbar-nav">
-                        <li><a class="nav-link" href="register.html">Register</a></li>
-                        <li><a class="nav-link" href="login.html">Login</a></li>
-                    </ul>
-                </div>
+
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        ><i class="fa fa-list"></i> My Orders</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        ><i class="fa fa-heart"></i> My Wishlist</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        ><i class="fa fa-shopping-cart"></i> My Cart</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        ><i class="fa fa-sign-out"></i> Logout</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-        </nav>
-     </div>
-     <!-- navber section end -->
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand d-block d-sm-block d-md-none d-lg-none"
+            href="#"
+          >
+            Craftkart
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  All Categories
+                </a>
+                <ul
+                  id="drop_category"
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="update_profile.html"
+                      ><i class="fa fa-user"></i> Profile</a
+                    >
+                  </li>
 
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa fa-list"></i> My Orders</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa fa-heart"></i> My Wishlist</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa fa-shopping-cart"></i> My Cart</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa fa-sign-out"></i> Logout</a
+                    >
+                  </li>
+                </ul>
+              </li>
 
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Arrivals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Featured Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Electronics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Fashions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Accessories</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="navbar-nav">
+              <li><a class="nav-link" href="register.html">Register</a></li>
+              <li><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- navber section end -->
 
-     <!-- detail page section start -->
-     <section class="py-5">
-        <div class="container">
-          <div class="row gx-5">
-            <div class="col-lg-5 pt-2" style="width: 30%; height: 20%;">
-                <img src="./images/p10.png" class="card-img-top" alt="..." style="width: 280px; height: 300px; margin-left: 100px"/>      
-            </div>
-            <main class="col-lg-6">
-              <div class="ps-lg-3">
-                <h4 class="title text-dark">
-                  Quality Men's Hoodie for Winter, Men's Fashion <br />
-                  Casual Hoodie
-                </h4>
-                <div class="d-flex flex-row my-3">
-                  <div class="text-warning mb-1 me-2">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <span class="ms-1">
-                      4.5
-                    </span>
-                  </div>
-                  <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
-                  <span class="text-success ms-2">In stock</span>
+    <!-- detail page section start -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row gx-5">
+          <div class="col-lg-5 pt-2" style="width: 30%; height: 20%">
+            <img
+              src="./images/p10.png"
+              id="productImage"
+              class="card-img-top"
+              alt="..."
+              style="width: 280px; height: 300px; margin-left: 100px"
+            />
+          </div>
+          <main class="col-lg-6">
+            <div class="ps-lg-3">
+              <h4 id="productName" class="title text-dark">
+                Quality Men's Hoodie for Winter, Men's Fashion <br />
+                Casual Hoodie
+              </h4>
+              <div class="d-flex flex-row my-3">
+                <div class="text-warning mb-1 me-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="ms-1"> 4.5 </span>
                 </div>
-      
-                <div class="mb-3">
-                  <span class="h5">$75.00</span>
-                  <span class="text-muted">/per box</span>
-                </div>
-      
-                <p>
-                  Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
-                  men.
-                </p>
-      
-      
-                <hr />
-      
-                <div class="row mb-4">
-                  <div class="col-md-4 col-6">
-                    <label class="mb-2">Size</label>
-                    <select class="form-select border border-secondary" style="height: 35px;">
-                      <option>Small</option>
-                      <option>Medium</option>
-                      <option>Large</option>
-                    </select>
-                  </div>
-                  <!-- col.// -->
-                  <div class="col-md-4 col-6 mb-3">
-                    <label class="mb-2 d-block">Quantity</label>
-                    <div class="input-group mb-3" style="width: 170px;">
-                      <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                      <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                      <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
-                <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
+                <span class="text-muted"
+                  ><i class="fas fa-shopping-basket fa-sm mx-1"></i>154
+                  orders</span
+                >
+                <span class="text-success ms-2">In stock</span>
               </div>
-            </main>
+
+              <div class="mb-3">
+                <span id="productPrice" class="h5">$75.00</span>
+              </div>
+
+              <p id="productDescription">
+                Modern look and quality demo item is a streetwear-inspired
+                collection that continues to break away from the conventions of
+                mainstream fashion. Made in Italy, these black and brown
+                clothing low-top shirts for men.
+              </p>
+
+              <hr />
+
+              <div class="row mb-4">
+                <div class="col-md-4 col-6">
+                  <label class="mb-2">Size</label>
+                  <select
+                    class="form-select border border-secondary"
+                    style="height: 35px"
+                  >
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
+                </div>
+                <!-- col.// -->
+                <div class="col-md-4 col-6 mb-3">
+                  <label class="mb-2 d-block">Quantity</label>
+                  <div class="input-group mb-3" style="width: 170px">
+                    <button
+                      class="btn btn-white border border-secondary px-3"
+                      type="button"
+                      id="button-addon1"
+                      data-mdb-ripple-color="dark"
+                    >
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input
+                      type="text"
+                      class="form-control text-center border border-secondary"
+                      placeholder="14"
+                      aria-label="Example text with button addon"
+                      aria-describedby="button-addon1"
+                    />
+                    <button
+                      class="btn btn-white border border-secondary px-3"
+                      type="button"
+                      id="button-addon2"
+                      data-mdb-ripple-color="dark"
+                    >
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
+              <a href="#" class="btn btn-primary shadow-0">
+                <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+              </a>
+              <a
+                href="#"
+                class="btn btn-light border border-secondary py-2 icon-hover px-3"
+              >
+                <i class="me-1 fa fa-heart fa-lg"></i> Save
+              </a>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-section">
+      <section class="why_section layout_padding">
+        <div class="container accordion-body">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <div class="full">
+                <form action="index.html" class="form_body">
+                  <h3 class="heading_centr">Please add Review</h3>
+                  <fieldset>
+                    <input
+                      type="text"
+                      placeholder="Enter your full name"
+                      name="name"
+                      required
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      name="email"
+                      required
+                    />
+                    <textarea
+                      placeholder="Enter your message"
+                      required
+                    ></textarea>
+                    <input
+                      type="rating"
+                      placeholder="⭐⭐⭐⭐⭐"
+                      name="rating"
+                      required
+                    />
+                    <input type="submit" value="Send Message" />
+                  </fieldset>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+    </div>
 
-     <div class="contact-section">
-        <section class="why_section layout_padding">
-            <div class="container accordion-body">
-                
-               <div class="row">
-                  <div class="col-lg-8 offset-lg-2 ">
-                     <div class="full">
-                        <form action="index.html" class="form_body">
-                            <h3 class="heading_centr">Please add Review</h3>
-                           <fieldset>
-                              <input type="text" placeholder="Enter your full name" name="name" required />
-                              <input type="email" placeholder="Enter your email address" name="email" required />
-                              <textarea placeholder="Enter your message" required></textarea>
-                              <input type="rating" placeholder="⭐⭐⭐⭐⭐" name="rating" required />
-                              <input type="submit" value="Send Message" />
-                           </fieldset>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-     </div>
-  
+    <!-- detail page section end -->
 
-     <!-- detail page section end -->
-
-
-
-
-     <!-- footer section -->
-     <footer class="footer_section">
-        <div class="container">
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
         <div class="row">
-            <div class="col-md-4 footer-col">
-                <div class="footer_contact">
-                    <h4>
-                    Reach at..
-                    </h4>
-                    <div class="contact_link_box">
-                    <a href="">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>
-                    Location
-                    </span>
-                    </a>
-                    <a href="">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>
-                    Call +880 1581528651
-                    </span>
-                    </a>
-                    <a href="">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>
-                    raselsarkercse@gmail.com
-                    </span>
-                    </a>
-                    </div>
-                </div>
+          <div class="col-md-4 footer-col">
+            <div class="footer_contact">
+              <h4>Reach at..</h4>
+              <div class="contact_link_box">
+                <a href="">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span> Location </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <span> Call +880 1581528651 </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span> raselsarkercse@gmail.com </span>
+                </a>
+              </div>
             </div>
-            <div class="col-md-4 footer-col">
-                <div class="footer_detail">
-                    <a href="index.html" class="footer-logo">
-                    Famms
-                    </a>
-                    <p>
-                    Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-                    </p>
-                    <div class="footer_social">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-4 footer-col">
+            <div class="footer_detail">
+              <a href="index.html" class="footer-logo"> Famms </a>
+              <p>
+                Necessary, making this the first true generator on the Internet.
+                It uses a dictionary of over 200 Latin words, combined with
+              </p>
+              <div class="footer_social">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+              </div>
             </div>
-            <div class="col-md-4 footer-col">
-                <div class="map_container">
-                    <div class="map">
-                    <div id="googleMap"></div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-4 footer-col">
+            <div class="map_container">
+              <div class="map">
+                <div id="googleMap"></div>
+              </div>
             </div>
+          </div>
         </div>
         <div class="footer-info">
-                <div class="col-lg-7 mx-auto px-0">
-                    <p>
-                        &copy; <span id="displayYear"></span> All Rights Reserved By
-                        <a href="#">Roots Tech.</a>
-                    </p>
-                </div>
-            </div>
-            <script>
-                document.getElementById("displayYear").innerText = new Date().getFullYear();
-            </script>
+          <div class="col-lg-7 mx-auto px-0">
+            <p>
+              &copy; <span id="displayYear"></span> All Rights Reserved By
+              <a href="#">Roots Tech.</a>
+            </p>
+          </div>
         </div>
-     </footer>
-     <!-- footer section -->
-
+        <script>
+          document.getElementById("displayYear").innerText =
+            new Date().getFullYear();
+        </script>
+      </div>
+    </footer>
+    <!-- footer section -->
 
     <!-- script file  -->
-    <script src="/Js/app.js"></script>
+    <script src="/Js/details.js"></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous">
-    </script>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-</body>
+  </body>
 </html>

@@ -1,95 +1,87 @@
+let allProducts = [];
 
-// const loadProducts = () => {
-//     fetch('https://e-shoping-tkrl.onrender.com/product/list/')
-//     .then((res) => res.json())
-//     .then((data) => displayProducts(data))
-//     .catch((err) => console.error(err))
-// }
-
-// const displayProducts = (products) => {
-//     const parent = document.getElementById('products');
-//     products.forEach((product) => {
-//         const div = document.createElement('div');
-//         div.classList.add('col');
-//         div.innerHTML = `
-//             <div class="card shadow h-100">
-//                 <p><i class="fa-solid fa-heart"></i></p>
-//                 <img src="${product.images}" class="card-img-top" loading="lazy" alt="...">
-//                 <div class="card-body d-flex flex-column flex-md-row">
-//                     <div class="flex-grow-1">
-//                         <strong><a href="details.html">${product.name}</a></strong>
-//                         <p class="card-text">${product.description}</p>
-//                         <div class="card-text">$${product.price}</div>
-//                         <p class="card-rating">${generateStars(product.rating)}</p>
-//                         <div class="card-text"><del>$${product.price}</del> 15%off</div>
-//                     </div>
-//                 </div>
-//             </div>
-//         `;
-//         parent.appendChild(div);
-//     });
-// };
-
-// const generateStars = (rating) => {
-//     const stars = '⭐';
-//     return stars.repeat(rating);
-// };
-
-// loadProducts();
-
-
-
-
-const loadProducts=() => {
-    fetch("https://e-shoping-tkrl.onrender.com/product/list/")
-    .then((res)=>res.json())
-    .then((data) => displayProducts(data?. result));
+const loadProducts = () => {
+  fetch("https://e-shoping-tkrl.onrender.com/product/list/")
+    .then((response) => response.json())
+    .then((data) => displayProducts(data))
+    .catch((error) => console.error("Error fetching products:", error));
 };
 
-const displayProducts=(products) => {
-    console.log(products);
-    products?.forEach((product) => {
+const displayProducts = (productsData) => {
+  let data = productsData;
+  if (allProducts.length > 0) {
+    data = allProducts;
+  }
+  const productsContainer = document.getElementById("products");
 
-        console.log(product);
-        const parent = document.getElementById(products);
-        const div = document.createElement("div");
-        div.classList.add("col");
-        div.innerHTML = `
-        <p><i class="fa-solid fa-heart"></i></p>
-                    <img src=${products?.images} class="card-img-top" loading="lazy" alt="...">
-                    <div class="card-body d-flex flex-column flex-md-row">
-                        <div class="flex-grow-1">
-                            <strong>Basketball Shoes</strong>
-                            <p class="card-text">${products?.title}</p>
-                            <p class="card-text">${products?.description}</p>
-                            <div class="card-text">${products?.price}</div>
-                            <div class="card-text">$${products?.price.toFixed(2)} <del>${products.price.toFixed(2)}</del> 15% off</div>
-                            <p class="card-rating">${products?.rating}⭐</p>
-                        </div>
-                    </div>
-        `;
-        parent.appendChild(div)
-    })
+  console.log("data:", data);
+  productsContainer.innerHTML = "";
+  data?.forEach((product) => {
+    //   .forEach((product) => {
+    const card = document.createElement("div");
+    card.classList.add("rasel", "cursor-pointer");
+
+    card.innerHTML = `
+   
+    <div  class="card shadow ">
+    <img src="${product.image}" class="card-img-top" loading="lazy" alt="${
+      product.name
+    }">
+    <div class="card-body d-flex flex-column flex-md-row">
+      <div class="flex-grow-1">
+      <strong><p >${product.name}</p></strong>
+        <p class="card-text">${product.description}</p>
+        <div class="card-text">$${product.price}</div>
+        <p class="card-rating">$${product.rating}</p>
+        <div class="card-text"><del>$${product.price}</del> ${parseInt(
+      product.price - product.price * 0.15
+    )} 15%off</div>
+      </div>
+    </div>
+  </div>
+   
+      `;
+    card.addEventListener("click", () => {
+      window.location.href = `details.html?id=${product.id}`;
+    });
+    productsContainer.appendChild(card);
+  });
 };
+
 loadProducts();
 
+// category options start
+const loadCategories = () => {
+  fetch("https://e-shoping-tkrl.onrender.com/category/category_list")
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((item) => {
+        const parent = document.getElementById("drop_category");
+        const li = document.createElement("li");
+        li.classList.add("dropdown-item");
+        li.innerText = item?.name;
+        parent.appendChild(li);
+      });
+    });
+};
 
+loadCategories();
 
-// const loadCategories = () => {
-//     fetch("https://e-shoping-tkrl.onrender.com/product/category/category_list/")
-//     .then((res)=>res.json())
-//     .then((data) => {
-//         data.forEach((item) =>{
-//             const parent = getElementById("drop_category");
-//             const li = document.createElement("li");
-//             li.classList.add("dropdown-item");
-//             li.innerText = item?.name;
-//             parent.appendChild(li);
-//         });
-//     });
-// };
-
-
+const handleSearch = (e) => {
+  e.preventDefault();
+  const searchValue = document.getElementById("search").value;
+  fetch(
+    `https://e-shoping-tkrl.onrender.com/product/list/?search=${
+      searchValue ? searchValue : ""
+    }`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      allProducts = data;
+      displayProducts();
+    })
+    .catch((error) => console.error("Error fetching products:", error));
+};
 
 // const loadReview = () => {
 //     fetch("https://e-shoping-tkrl.onrender.com/product/review/list/")
@@ -114,11 +106,5 @@ loadProducts();
 //     });
 // };
 
-
-
-
-
-
 // loadCategories();
 // loadReview();
-
