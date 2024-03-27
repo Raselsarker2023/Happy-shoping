@@ -256,7 +256,7 @@
 }
 .card-img-top {
   width: 60%;
-  height: 60%;
+  height: 40%;
   margin: auto;
   padding-top: 6%;
 }
@@ -331,6 +331,10 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
 }
 
 .card:hover {
@@ -368,9 +372,9 @@
   background-color: #0056b3;
 }
 .card_img {
-  width: 300px;
-  height: 250px;
-  align-items: center;
+  width: 170px;
+  height: 180px;
+  margin: auto;
 }
 /* Best Seller product section end */
 

@@ -115,6 +115,11 @@
   font-size: large;
   color:white;
 }
+
+input[type="text"], input[type="password"] {
+  text-transform: lowercase;
+}
+
 /* login section end */
 
 

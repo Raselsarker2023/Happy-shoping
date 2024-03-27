@@ -119,9 +119,10 @@
 .input-group{
   width: 100%;
 }
-/* .form-group{
-  display: flex;
-} */
+
+input[type="text"], input[type="password"], input[type="email"] {
+  text-transform: lowercase;
+}
 
 /* new register form end */
 
