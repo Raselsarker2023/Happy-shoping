@@ -372,9 +372,12 @@
   background-color: #0056b3;
 }
 .card_img {
+  display: flex;
   width: 170px;
   height: 180px;
   margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 /* Best Seller product section end */
 
