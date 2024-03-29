@@ -1,52 +1,49 @@
-// login form start
-$(document).ready(function() {
-    $('#contact_form').bootstrapValidator({
-        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            user_name: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Please enter your Username'
-                    }
-                }
-            },
-            user_password: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Please enter your Password'
-                    }
-                }
-            } 
-        }
-    })
-    .on('success.form.bv', function(e) {
-        $('#success_message').slideDown({ opacity: "show" }, "slow"); // Do something ...
-        $('#contact_form').data('bootstrapValidator').resetForm();
 
-        // Prevent form submission
-        e.preventDefault();
 
-        // Get the form instance
-        var $form = $(e.target);
+const handleLogin = (event) => {
+    // Prevent default form submission behavior
+    event.preventDefault();
 
-        // Get the BootstrapValidator instance
-        var bv = $form.data('bootstrapValidator');
+    // Get username and password values from the form
+    const username = getValue("login-username");
+    const password = getValue("login-password");
 
-        // Use Ajax to submit form data
-        $.post($form.attr('action'), $form.serialize(), function(result) {
-            console.log(result);
-        }, 'json');
-    });
-});
-// login form end
+    // Construct the info object with username and password
+    const info = {
+        username,
+        password,
+    };
+
+    // Send the login information to the server
+    fetch("https://e-shoping-tkrl.onrender.com/account/login/", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(info),
+        })
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return res.json();
+        })
+        .then((data) => {
+            // Handle successful response
+            console.log(data);
+
+            
+            if(data.token && data.user_id){
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user_id", data.user_id);
+                window.location.href = "index.html";
+            }
+        })
+        .catch((error) => {
+            // Handle error
+            console.error("Error during fetch:", error);
+        });
+};
+
+// Assuming this function is defined elsewhere in your code
+const getValue = (id) => {
+    return document.getElementById(id).value;
+};

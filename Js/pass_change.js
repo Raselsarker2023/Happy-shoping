@@ -1,69 +1,63 @@
-// password changes section start
-var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirmPassword");
-
-document.getElementById('signupLogo').src = "https://s3-us-west-2.amazonaws.com/shipsy-public-assets/shipsy/SHIPSY_LOGO_BIRD_BLUE.png";
-enableSubmitButton();
-
-function validatePassword() {
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-    return false;
-  } else {
-    confirm_password.setCustomValidity('');
-    return true;
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-
-function enableSubmitButton() {
-  document.getElementById('submitButton').disabled = false;
-  document.getElementById('loader').style.display = 'none';
-}
-
-function disableSubmitButton() {
-  document.getElementById('submitButton').disabled = true;
-  document.getElementById('loader').style.display = 'unset';
-}
-
+// Function to handle form submission and validation
 function validateSignupForm() {
-  var form = document.getElementById('signupForm');
+  // Prevent form submission if validation fails
+  event.preventDefault();
   
-  for(var i=0; i < form.elements.length; i++){
-      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
-        console.log('There are some required fields!');
-        return false;
-      }
-    }
+  // Get input values
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
   
-  if (!validatePassword()) {
-    return false;
+  // Perform password validation
+  if (password.length < 8) {
+      alert('Password must be at least 8 characters long.');
+      return;
   }
   
-  onSignup();
+  if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+  }
+  
+  // If validation passes, proceed with form submission
+  submitForm();
 }
 
-function onSignup() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    
-    disableSubmitButton();
-    
-    if (this.readyState == 4 && this.status == 200) {
-      enableSubmitButton();
-    }
-    else {
-      console.log('AJAX call failed!');
-      setTimeout(function(){
-        enableSubmitButton();
-      }, 1000);
-    }
-    
+// Function to submit the form data
+function submitForm() {
+  // Display loader
+  document.getElementById('loader').innerHTML = 'Loading...';
+  
+  // Get form data
+  const password = document.getElementById('password').value;
+  
+  // Construct data object
+  const data = {
+      password: password
   };
   
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
+  // Make API call to update password
+  fetch("https://e-shoping-tkrl.onrender.com/account/change-password/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      // Handle response
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      // Handle successful response
+      console.log(data);
+      alert('Password changed successfully!');
+      document.getElementById('loader').innerHTML = ''; // Clear loader
+  })
+  .catch(error => {
+      // Handle error
+      console.error('Error during fetch:', error);
+      alert('An error occurred. Please try again later.');
+      document.getElementById('loader').innerHTML = ''; // Clear loader
+  });
 }
-// password changes section end

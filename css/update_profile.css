@@ -112,6 +112,10 @@
         margin-left: 1rem;
         margin-right: 1rem;
     }
+
+    input[type="username"], input[type="email"], input[type="last_name"], input[type="password"], input[type="confirm_password"] {
+      text-transform: lowercase;
+    }
   
   /* new update profile form end */
   

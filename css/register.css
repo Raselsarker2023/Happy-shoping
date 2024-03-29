@@ -120,7 +120,7 @@
   width: 100%;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="username"], input[type="password"], input[type="email"], input[type="last_name"] {
   text-transform: lowercase;
 }
 
