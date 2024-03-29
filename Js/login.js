@@ -35,7 +35,10 @@ const handleLogin = (event) => {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user_id", data.user_id);
                 window.location.href = "index.html";
+
+                console.log(data.user_id);
             }
+            
         })
         .catch((error) => {
             // Handle error

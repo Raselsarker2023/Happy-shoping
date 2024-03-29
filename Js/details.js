@@ -1,9 +1,10 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
-console.log("woi: productId");
-console.log(urlParams, productId);
+
+console.log("productId: ", productId);
+
 const addToCartData = {
-  productId: parseInt(productId),
+  product: parseInt(productId),
   cart: 2,
 };
 
@@ -28,10 +29,10 @@ document
       body: JSON.stringify(addToCartData),
       method: "POST",
       headers: {
-        CONTENT_TYPE: "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
-      .then((result) => console.log(result))
+      .then((result) => console.log("add to cart success", result))
       .catch((error) => console.error("add to card data", error));
   });
