@@ -23,7 +23,7 @@ const displayProducts = (productsData) => {
 
     card.innerHTML = `
    
-    <div  class="card shadow ">
+    <div  class="card-shadow ">
     <img src="${product.image}" class="card-img-top" loading="lazy" alt="${
       product.name
     }">
