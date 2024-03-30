@@ -92,3 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+const getProducts = () => {
+  let cart_item = localStorage.getItem("cart_items");
+  console.log(cart_item, "cart_items");
+}
+getProducts();
