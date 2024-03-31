@@ -27,15 +27,41 @@ document
   .addEventListener("click", function () {
     const quantity = document.getElementById("quantity_value").value;
     addToCartData.quantity = parseInt(quantity);
+
     let user_id = localStorage.getItem("user_id");
     let old_cart_item = localStorage.getItem("cart_items");
-    console.log(old_cart_item, "dsjfjlf");
-    
-    if (old_cart_item && old_cart_item.length) {
+    let parsedOldCartDAta = JSON.parse(old_cart_item)
+    let quantity00 = 0
+parsedOldCartDAta?.map(item => {
+  let current = item.quantity
+  quantity00+current
+})
 
-      let marged_cart_item = [...old_cart_item, addToCartData]
-      localStorage.setItem("cart_items", JSON.stringify(marged_cart_item));
-      console.log(old_cart_item, "marged_cart_items");
+
+    
+    if (parsedOldCartDAta && parsedOldCartDAta.length) {
+
+      /// =========================== checking if  product already exists 
+
+      if(parsedOldCartDAta?.find(item=>item.product===addToCartData.product)){
+
+         
+        let currentProduct = parsedOldCartDAta?.find(item=>item.product===addToCartData.product)
+   
+        currentProduct.quantity = currentProduct.quantity + 1
+
+
+        let filtered = parsedOldCartDAta.filter(item => item.product !==currentProduct?.product)
+
+        let margedDAta = [...filtered, currentProduct]
+      localStorage.setItem("cart_items", JSON.stringify(margedDAta))
+      }else{
+
+        //================== adding new product
+        let margedDAta = [...parsedOldCartDAta, addToCartData]
+        localStorage.setItem("cart_items", JSON.stringify(margedDAta))
+      }
+    
     }
     else{
       localStorage.setItem("cart_items", JSON.stringify([addToCartData]));
