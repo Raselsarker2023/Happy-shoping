@@ -284,8 +284,9 @@
   cursor: pointer;
 }
 .show_card {
-  display: flex !important;
-  gap: 20px;
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ gap: 20px;
 }
 /* product section end */
 
