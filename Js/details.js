@@ -81,3 +81,19 @@ parsedOldCartDAta?.map(item => {
       .then((result) => console.log("add to cart success", result))
       .catch((error) => console.error("add to card data", error));
   });
+
+
+
+
+// Update cart count function
+const updateCartCount = () => {
+  let cartItems = JSON.parse(localStorage.getItem("cart_items"));
+  let totalQuantity = cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0;
+  document.getElementById("cart_count").innerText = totalQuantity;
+}
+
+document.getElementById("add_to_cart_btn").addEventListener("click", function () {
+  updateCartCount();
+});
+
+updateCartCount();

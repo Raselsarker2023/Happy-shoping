@@ -99,3 +99,77 @@ const getProducts = () => {
   console.log(cart_item, "cart_items");
 }
 getProducts();
+
+
+
+
+// Function to fetch cart data from the API
+const userCartdata = () => {
+  fetch('https://e-shoping-tkrl.onrender.com/card/list/')
+      .then(res => res.json())
+      .then(data => {
+          updateCartUI(data);
+      })
+      .catch(error => console.error('Error fetching cart data:', error));
+}
+
+// Function to update the cart UI with data
+const updateCartUI = (cartData) => {
+  const cartItemsContainer = document.querySelector('.cart-items');
+  cartItemsContainer.innerHTML = '';
+
+  
+  cartData.items.forEach(item => {
+      const cartItemHTML = `
+          <div class="cart-item">
+              <div class="row">
+                  <div class="col-md-7 center-item mx-auto">
+                      <img src="${item.image}" alt="${item.name}">
+                      <h5>${item.name}</h5>
+                  </div>
+                  <div class="col-md-5 center-item">
+                      <div class="input-group number-spinner">
+                          <button class="btn btn-default case-minus" data-id="${item.id}"><i class="fas fa-minus"></i></button>
+                          <input type="number" min="0" class="form-control text-center case-number" value="${item.quantity}">
+                          <button class="btn btn-default case-plus" data-id="${item.id}"><i class="fas fa-plus"></i></button>
+                      </div>
+                      <h5>$ <span class="case-total">${item.total}</span> </h5>
+                      <button class="btn btn-danger remove-item" data-id="${item.id}">Remove</button>
+                  </div>
+              </div>
+          </div>
+      `;
+      cartItemsContainer.insertAdjacentHTML('beforeend', cartItemHTML);
+  });
+
+  // Update subtotal, tax, and total
+  document.getElementById('sub-total').innerText = cartData.subtotal;
+  document.getElementById('tax-amount').innerText = cartData.tax;
+  document.getElementById('total-price').innerText = cartData.total;
+}
+
+// Event listener for check out button
+document.querySelector('.check-out').addEventListener('click', () => {
+  console.log('Checkout button clicked');
+});
+
+
+// Event delegation for +/- buttons and remove button
+document.addEventListener('click', event => {
+  if (event.target.classList.contains('case-minus')) {
+      const itemId = event.target.dataset.id;
+      console.log('Decrease quantity for item:', itemId);
+      
+  } else if (event.target.classList.contains('case-plus')) {
+      const itemId = event.target.dataset.id;
+      console.log('Increase quantity for item:', itemId);
+     
+  } else if (event.target.classList.contains('remove-item')) {
+      const itemId = event.target.dataset.id;
+      console.log('Remove item:', itemId);
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', fetchCartData);
+
