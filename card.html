@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/card.css" />
   </head>
   <body>
+
     <!-- navber section start -->
     <div class="main-navbar shadow-sm sticky-top">
       <div class="top-navbar">
@@ -57,8 +58,8 @@
             <div class="col-md-5 my-auto">
               <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" href="card.html">
-                    <i class="fa fa-shopping-cart"></i> Cart (5)
+                  <a id="cart-count" class="nav-link" href="card.html">
+                    <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
                   </a>
                 </li>
                 <li class="nav-item">
@@ -169,12 +170,13 @@
     </div>
     <!-- navber section end -->
 
+
     <!-- card section start -->
     <section>
       <div class="container">
         <h2 class="px-5 p-2">My shopping cart</h2>
         <div class="cart">
-          <div class="col-md-12 col-lg-10 mx-auto">
+          <div id="cart_containers" class="carts-item col-md-12 col-lg-10 mx-auto">
             <!-- <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
@@ -195,34 +197,35 @@
                </div> -->
 
             <div class="cart-item">
-              <div class="row g-2">
-                <div class="col-6">
-                  <h5>Subtotal:</h5>
-                  <h5>Tax:</h5>
-                  <h5>Total:</h5>
-                </div>
+          
+            </div>
 
-                <div class="col-6 status">
-                  <h5>$<span id="sub-total">1,278</span></h5>
-                  <h5>$<span id="tax-amount">0</span></h5>
-                  <h5>$<span id="total-price">1,278</span></h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 pt-4 pb-4">
-              <button type="button" class="btn btn-primary check-out">
-                Check Out
-              </button>
-            </div>
           </div>
+        </div>
+
+        <div class="row g-2">
+          <div class="col-6">
+            <h5>Subtotal:</h5>
+            <h5>Tax:</h5>
+            <h5>Total:</h5>
+          </div>
+
+          <div class="col-6 status">
+            <h5>$<span id="sub-total">1,278</span></h5>
+            <h5>$<span id="tax-amount">0</span></h5>
+            <h5>$<span id="total-price">1,278</span></h5>
+          </div>
+        </div>
+        <div class="col-md-12 pt-4 pb-4">
+          <button type="button" class="btn btn-primary check-out">
+            Check Out
+          </button>
         </div>
       </div>
     </section>
     <!-- card section end -->
 
-    <!-- card section start -->
-
-    <!-- card section end -->
+    
 
     <!-- subscribe section -->
     <section class="subscribe_section">
@@ -495,6 +498,8 @@
 
     <!-- script file  -->
     <script src="/Js/card.js"></script>
+    <script src="/Js/navber.js"></script>
+    <script src="/Js/details.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script
