@@ -127,27 +127,6 @@ console.log(parseInt(cart_item[0]?.price) * parseInt(cart_item[0]?.quantity) , '
     cartsContainer.insertAdjacentHTML('beforeend', cartItemHTML);
    });
 
-
-//   let product_id = cart_item.map(item => item.product);
-//   let fetch_data = product_id.map(async (item) => {
-//   let res = await fetch(`https://e-shoping-tkrl.onrender.com/product/list/${item}`);
-//   let data = await res.json();
-//   return data;
-// });
-
-// Using Promise.all() to wait for all promises to resolve
-
-
-// Promise.all(fetch_data)
-// .then((results) => {
-
-  
-//   })
-//   .catch((error) => {
-//     // Handle errors
-//     console.error('Error fetching data:', error);
-//   });
-
   console.log(fetch_data, "fetch_akjfosajofjasofj")
 }
 getProducts();

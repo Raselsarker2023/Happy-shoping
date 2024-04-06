@@ -43,8 +43,8 @@
                         <ul class="nav justify-content-end">
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="card.html">
-                                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                                <a id="cart-count" class="nav-link" href="card.html">
+                                    <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -57,12 +57,27 @@
                                     <i class="fa fa-user"></i> Username 
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="update_profile.html"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="update_profile.html"><i class="fa fa-user"></i> Profile</a>
+                                    </li>
 
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                    <li>
+                                       <a id="order-count" class="nav-link" href="card.html">
+                                          <i class="fa fa-shopping-cart"></i> Orders (<span id='cart_count'>0</span>)
+                                        </a>
+                                    <li>
+                                        <a id="wishlist-count" class="nav-link" href="wishlist.html">
+                                            <i class="fa fa-shopping-cart"></i> Wishlist (<span id='wishlist_count'>0</span>)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="cart-count" class="nav-link" href="card.html">
+                                            <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -374,6 +389,8 @@
          
     <!-- script file  -->
     <script src="/Js/app.js"></script>
+    <script src="/Js/card.js"></script>
+    <script src="/Js/navber.js"></script>
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

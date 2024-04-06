@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+
     <!-- navber section start -->
     <div class="main-navbar shadow-sm sticky-top">
       <div class="top-navbar">
@@ -66,13 +67,13 @@
             <div class="col-md-5 my-auto">
               <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" href="card.html">
-                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                  <a id="cart-count" class="nav-link" href="card.html">
+                    <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fa fa-heart"></i> Wishlist (0)
+                  <a class="nav-link" href="wishlist.html">
+                    <i class="fa fa-heart"></i> Wishlist (<span id='wishlist_count'>0</span>)
                   </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -99,14 +100,14 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#"
+                      <a class="dropdown-item" href="wishlist.html"
                         ><i class="fa fa-heart"></i> My Wishlist</a
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#"
-                        ><i class="fa fa-shopping-cart"></i> My Cart</a
-                      >
+                      <a id="cart-count" class="nav-link" href="card.html">
+                        <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
+                     </a>
                     </li>
                     <li>
                       <a onclick="handlelogOut(event)" class="dropdown-item"
@@ -1029,11 +1030,14 @@
         <div class="text-center">&copy; Copyright 2024 - Roots Tech</div>
       </div>
     </footer>
+    <!-- footer section end -->
 
 
 
     <!-- script file  -->
 
+    <script src="/Js/card.js"></script>
+    <script src="/Js/navber.js"></script>
     <script src="/Js/logout.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"

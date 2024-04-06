@@ -63,8 +63,8 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fa fa-heart"></i> Wishlist (0)
+                  <a class="nav-link" href="wishlist.html">
+                    <i class="fa fa-heart"></i> Wishlist (<span id='wishlist_count'>0</span>)
                   </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -86,22 +86,22 @@
                     </li>
 
                     <li>
-                      <a class="dropdown-item" href="#"
+                      <a class="dropdown-item" href="card.html"
                         ><i class="fa fa-list"></i> My Orders</a
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#"
-                        ><i class="fa fa-heart"></i> My Wishlist</a
-                      >
+                      <a class="nav-link" href="wishlist.html">
+                        <i class="fa fa-heart"></i> Wishlist (<span id='wishlist_count'>0</span>)
+                      </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#"
-                        ><i class="fa fa-shopping-cart"></i> My Cart</a
-                      >
+                      <a id="cart-count" class="nav-link" href="card.html">
+                        <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
+                      </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#"
+                      <a onclick="handlelogOut(event)" class="dropdown-item"
                         ><i class="fa fa-sign-out"></i> Logout</a
                       >
                     </li>
@@ -139,9 +139,25 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">All Categories</a>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  All Categories
+                </a>
+                <ul
+                  id="drop_category"
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdown"
+                ></ul>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="#">New Arrivals</a>
               </li>
