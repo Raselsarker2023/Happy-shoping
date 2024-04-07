@@ -1,210 +1,168 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const apiUrl = "https://e-shoping-tkrl.onrender.com/card/add/";
+document.addEventListener("DOMContentLoaded", function () {
+  const apiUrl = "https://e-shoping-tkrl.onrender.com/card/add/";
 
-//   // Fetch Cart Items
-//   function fetchCartItems() {
-//     fetch(apiUrl)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-//       })
-//       .catch((error) => console.error("Error fetching cart items:", error));
-//   }
+  // Fetch Cart Items
+  function fetchCartItems() {
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.error("Error fetching cart items:", error));
+  }
 
-//   fetchCartItems();
+  fetchCartItems();
 
-//   // Update Quantity
-//   function updateQuantity(product, price, isIncreasing) {
-//     const productInput = document.getElementById(product + "-number");
-//     let productNumber = parseInt(productInput.value);
+  // Update Quantity
+  function updateQuantity(product, price, isIncreasing) {
+   const productInput = document.getElementById(product + "-number");
+   let productNumber = parseInt(productInput.value);
+ 
+   if (isIncreasing) {
+     productNumber++;
+   } else if (productNumber > 0) {
+     productNumber--;
+   }
+ 
+   productInput.value = productNumber;
+   updateItemTotal(product, productNumber, price);
+   calculateTotal();
+ }
+ 
 
-//     if (isIncreasing) {
-//       productNumber++;
-//     } else if (productNumber > 0) {
-//       productNumber--;
-//     }
+  // Update Item Total Price
+  function updateItemTotal(product, quantity, price) {
+    const itemTotal = document.getElementById(product + "-total");
+    itemTotal.innerText = quantity * price;
+    calculateTotal(); // Call calculateTotal() after updating the item total
+  }
 
-//     productInput.value = productNumber;
-//     updateItemTotal(product, productNumber, price);
-//     calculateTotal();
-//   }
+  // Calculate Total
+  function calculateTotal() {
+    let subTotal = 0;
 
-//   // Update Item Total Price
-//   function updateItemTotal(product, quantity, price) {
-//     const itemTotal = document.getElementById(product + "-total");
-//     itemTotal.innerText = quantity * price;
-//     calculateTotal(); // Call calculateTotal() after updating the item total
-//   }
+    // Loop through each product type
+    ["case", "case"].forEach((product) => {
+      const productNumber = getInputvalue(product);
+      const productPrice = product === "case" ? 1219 : 59; // Update price accordingly
 
-//   // Calculate Total
-//   function calculateTotal() {
-//     let subTotal = 0;
+      subTotal += productNumber * productPrice;
+    });
 
-//     // Loop through each product type
-//     ["case", "case"].forEach((product) => {
-//       const productNumber = getInputvalue(product);
-//       const productPrice = product === "case" ? 1219 : 59; // Update price accordingly
+    const tax = subTotal * 0.1; // Assuming tax is 10% of the subtotal
+    const totalPrice = subTotal + tax;
 
-//       subTotal += productNumber * productPrice;
-//     });
+    // Update on the HTML
+    document.getElementById("sub-total").innerText = subTotal;
+    document.getElementById("tax-amount").innerText = tax;
+    document.getElementById("total-price").innerText = totalPrice;
+  }
 
-//     const tax = subTotal * 0.1; // Assuming tax is 10% of the subtotal
-//     const totalPrice = subTotal + tax;
+  // Get Input Value
+  function getInputvalue(product) {
+    const productInput = document.getElementById(product + "-number");
+    return parseInt(productInput.value);
+  }
 
-//     // Update on the HTML
-//     document.getElementById("sub-total").innerText = subTotal;
-//     document.getElementById("tax-amount").innerText = tax;
-//     document.getElementById("total-price").innerText = totalPrice;
-//   }
+  // Event Listeners
+  document.getElementById("case-plus").addEventListener("click", function () {
+    updateQuantity("case", 59, true);
+  });
 
-//   // Get Input Value
-//   function getInputvalue(product) {
-//     const productInput = document.getElementById(product + "-number");
-//     return parseInt(productInput.value);
-//   }
+  document.getElementById("case-minus").addEventListener("click", function () {
+    updateQuantity("case", 59, false);
+  });
 
-//   // Event Listeners
-//   document.getElementById("case-plus").addEventListener("click", function () {
-//     updateQuantity("case", 59, true);
-//   });
+  document.getElementById("case-number").addEventListener("click", function () {
+    updateQuantity("case", 1219, true);
+  });
 
-//   document.getElementById("case-minus").addEventListener("click", function () {
-//     updateQuantity("case", 59, false);
-//   });
+  document.getElementById("case-minus").addEventListener("click", function () {
+    updateQuantity("case", 1219, false);
+  });
 
-//   document.getElementById("case-number").addEventListener("click", function () {
-//     updateQuantity("case", 1219, true);
-//   });
+  document.querySelectorAll(".btn-danger").forEach((button) => {
+    button.addEventListener("click", function () {
+      // Remove item from the cart
+      // Recalculate total
+    });
+  });
 
-//   document.getElementById("case-minus").addEventListener("click", function () {
-//     updateQuantity("case", 1219, false);
-//   });
-
-//   document.querySelectorAll(".btn-danger").forEach((button) => {
-//     button.addEventListener("click", function () {
-//       // Remove item from the cart
-//       // Recalculate total
-//     });
-//   });
-
-//   document.querySelector(".check-out").addEventListener("click", function () {
-//     // Implement checkout functionality
-//   });
-// });
+  document.querySelector(".check-out").addEventListener("click", function () {
+    // Implement checkout functionality
+  });
+});
 
 
 
 const getProducts = async () => {
-  let cart_item = JSON.parse(localStorage.getItem("cart_items"))
-console.log(parseInt(cart_item[0]?.price) * parseInt(cart_item[0]?.quantity) , 'pppppppppppppppppppppppppppppppppppppppp')
-
-
-  const cartsContainer = document.getElementById("cart_containers");
-  cartsContainer.innerHTML = ""; // Clear the container before adding new items
-  // Iterate through the results and create HTML for each item
-  cart_item?.forEach(item => {
-    const cartItemHTML = `
-    <div class="cart-item">
-    <div class="row">
-       <div class="col-md-7 center-item mx-auto">
-          <img src="${item?.image}" alt="...">
-          <h5>${item?.name}555</h5>
+   let cart_items = JSON.parse(localStorage.getItem("cart_items"));
+   const cartsContainer = document.getElementById("cart_containers");
+   cartsContainer.innerHTML = ""; // Clear the container before adding new items
+   
+   cart_items?.forEach((item, index) => {
+     const cartItemHTML = `
+       <div class="cart-item">
+         <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+             <img src="${item.image}" alt="...">
+             <h5>${item.name}</h5>
+           </div>
+           <div class="col-md-5 center-item">
+             <div class="input-group number-spinner">
+               <button class="btn btn-default decrease-quantity" data-index="${index}"><i class="fas fa-minus"></i></button>
+               <input type="number" min="0" class="form-control text-center quantity-input" value="${item.quantity}"/>
+               <button class="btn btn-default increase-quantity" data-index="${index}"><i class="fas fa-plus"></i></button>
+             </div>
+             <h5>$ <span class="item-total">${parseInt(item.price) * parseInt(item.quantity)}</span> </h5>
+             <button class="btn btn-danger remove-product" data-index="${index}">Remove</button>
+           </div>
+         </div>
        </div>
-       <div class="col-md-5 center-item">
-          <div class="input-group number-spinner">
-             <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-             <input id="case-number" type="number" min="0" class="form-control text-center" value="${item?.quantity}"/>
-             <button  id="case-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
-
-          </div>
-          <h5>$ <span id="case-total">${parseInt(item?.price) * parseInt(item?.quantity )}</span> </h5>
-          <button class="btn btn-danger">Remove</button>
-       </div>
-    </div>
- </div>
-    `;
-    // Assuming cartItemsContainer is the correct reference to the container
-    cartsContainer.insertAdjacentHTML('beforeend', cartItemHTML);
+     `;
+     cartsContainer.insertAdjacentHTML('beforeend', cartItemHTML);
    });
+ 
+   // Add event listeners to plus and minus buttons
+   document.querySelectorAll('.increase-quantity').forEach((button) => {
+     button.addEventListener('click', (event) => {
+       const index = parseInt(event.target.dataset.index);
+       cart_items[index].quantity++;
+       updateCart();
+     });
+   });
+ 
+   document.querySelectorAll('.decrease-quantity').forEach((button) => {
+     button.addEventListener('click', (event) => {
+       const index = parseInt(event.target.dataset.index);
+       if (cart_items[index].quantity > 1) {
+         cart_items[index].quantity--;
+         updateCart();
+       }
+     });
+   });
+ 
+   // Add event listeners to remove buttons
+   document.querySelectorAll('.remove-product').forEach((button, index) => {
+     button.addEventListener('click', () => {
+       cart_items.splice(index, 1);
+       updateCart();
+     });
+   });
+ 
+   // Function to update cart items and local storage
+   function updateCart() {
+     localStorage.setItem('cart_items', JSON.stringify(cart_items));
+     getProducts(); // Rerender the products
+   }
+ }
+ 
+ getProducts();
 
-  console.log(fetch_data, "fetch_akjfosajofjasofj")
+
+// remove functionality
+async function removeProduct(id) {
+   let cart_item = JSON.parse(localStorage.getItem("cart_items"))
+   let fillercartItem = cart_item.filter(item => item.id !== id);
+   localStorage.setItem("cart_items", JSON.stringify(fillercartItem));
 }
-getProducts();
-
-
-
-
-// Function to fetch cart data from the API
-// const userCartdata = () => {
-//   fetch('https://e-shoping-tkrl.onrender.com/card/list/')
-//       .then(res => res.json())
-//       .then(data => {
-//           updateCartUI(data);
-//       })
-//       .catch(error => console.error('Error fetching cart data:', error));
-// }
-
-// Function to update the cart UI with data
-// const updateCartUI = (cartData) => {
-//   const cartItemsContainer = document.querySelector('.cart-items');
-//   cartItemsContainer.innerHTML = '';
-
-  
-//   cartData.items.forEach(item => {
-//       const cartItemHTML = `
-//           <div class="cart-item">
-//               <div class="row">
-//                   <div class="col-md-7 center-item mx-auto">
-//                       <img src="${item.image}" alt="${item.name}">
-//                       <h5>${item.name}</h5>
-//                   </div>
-//                   <div class="col-md-5 center-item">
-//                       <div class="input-group number-spinner">
-//                           <button class="btn btn-default case-minus" data-id="${item.id}"><i class="fas fa-minus"></i></button>
-//                           <input type="number" min="0" class="form-control text-center case-number" value="${item.quantity}">
-//                           <button class="btn btn-default case-plus" data-id="${item.id}"><i class="fas fa-plus"></i></button>
-//                       </div>
-//                       <h5>$ <span class="case-total">${item.total}</span> </h5>
-//                       <button class="btn btn-danger remove-item" data-id="${item.id}">Remove</button>
-//                   </div>
-//               </div>
-//           </div>
-//       `;
-//       cartItemsContainer.insertAdjacentHTML('beforeend', cartItemHTML);
-//   });
-
-//   // Update subtotal, tax, and total
-//   document.getElementById('sub-total').innerText = cartData.subtotal;
-//   document.getElementById('tax-amount').innerText = cartData.tax;
-//   document.getElementById('total-price').innerText = cartData.total;
-// }
-
-// // Event listener for check out button
-// document.querySelector('.check-out').addEventListener('click', () => {
-//   console.log('Checkout button clicked');
-// });
-
-
-// // Event delegation for +/- buttons and remove button
-// document.addEventListener('click', event => {
-//   if (event.target.classList.contains('case-minus')) {
-//       const itemId = event.target.dataset.id;
-//       console.log('Decrease quantity for item:', itemId);
-      
-//   } else if (event.target.classList.contains('case-plus')) {
-//       const itemId = event.target.dataset.id;
-//       console.log('Increase quantity for item:', itemId);
-     
-//   } else if (event.target.classList.contains('remove-item')) {
-//       const itemId = event.target.dataset.id;
-//       console.log('Remove item:', itemId);
-//   }
-// });
-
-
-// document.addEventListener('DOMContentLoaded', fetchCartData);
-
-
-
-
-

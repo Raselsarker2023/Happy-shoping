@@ -233,9 +233,9 @@
           </div>
         </div>
         <div class="col-md-12 pt-4 pb-4">
-          <button type="button" class="btn btn-primary check-out">
-            Check Out
-          </button>
+          <form action="/create-checkout-session" method="POST">
+            <button class="btn btn-primary check-out" type="submit" id="checkout-button">Checkout</button>
+          </form>
         </div>
       </div>
     </section>
