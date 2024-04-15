@@ -1,44 +1,45 @@
-let wishList = [];
 
-function setup() 
-{
-    let products = document.querySelectorAll(".but");
-    for (let i = 0; i < products.length; i++)
-    {
-        products[i].onclick = function(e) {
-            addItem(e);
-        }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const apiUrl = "https://e-shoping-tkrl.onrender.com/card/add/";
+
+    // Fetch Cart Items
+    function fetchCartItems() {
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => console.error("Error fetching cart items:", error));
     }
-}
 
-function addItem (e) {
-    let productId = e.target.getAttribute("id");
-    if(!wishList.find(element => element === productId)){
-        let productDiv = document.getElementById("product" + productId);
+    fetchCartItems();
 
-        let wishDiv = document.createElement("div");
-        wishDiv.setAttribute("id", "wish" + productId);
-        wishDiv.setAttribute("class", "product");
-        wishDiv.setAttribute("style", "margin-bottom: 10px;")
-        wishDiv.innerHTML += productDiv.innerHTML;
-        let removeBtn = document.createElement("input");
-        removeBtn.setAttribute("id", "remove" + productId);
-        removeBtn.setAttribute("type", "button");
-        removeBtn.setAttribute("value", "Remove");
-        // removeBtn.setAttribute("class", "removebut");
-        removeBtn.onclick = () => removeItem(productId);
-        wishDiv.appendChild(removeBtn);
-
-        let aside = document.getElementById("wishlist");
-        aside.appendChild(wishDiv);
-
-        wishList.push(productId);
+    // Add to Wishlist
+    function addToWishlist(productName, productPrice, productImage) {
+        let wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
+        const newItem = {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+        wishlistItems.push(newItem);
+        localStorage.setItem("wishlist_items", JSON.stringify(wishlistItems));
+        alert("Product added to wishlist!");
     }
-}
 
-function removeItem(productId) {
-    document.getElementById("wish" + productId).remove();
-    wishList = wishList.filter(element => element !== productId)
-}
+    // Event Listeners
+    document.getElementById("add_to_wishlist").addEventListener("click", function () {
+        const productName = document.getElementById("productName").innerText;
+        const productPrice = document.getElementById("productPrice").innerText;
+        const productImage = document.getElementById("productImage").src;
+        addToWishlist(productName, productPrice, productImage);
+    });
 
-window.addEventListener("load", setup);
+    document.querySelectorAll(".btn-danger").forEach((button) => {
+        button.addEventListener("click", function () {
+            // Handle other button clicks if needed
+        });
+    });
+   
+});

@@ -108,3 +108,6 @@ const handleSearch = (e) => {
 
 // loadCategories();
 // loadReview();
+
+
+const add_to_wishlist = () =>

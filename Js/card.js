@@ -166,3 +166,48 @@ async function removeProduct(id) {
    let fillercartItem = cart_item.filter(item => item.id !== id);
    localStorage.setItem("cart_items", JSON.stringify(fillercartItem));
 }
+
+
+
+
+
+// add to wishlist function.
+
+const add_to_wishlist = () => {
+  document.getElementById("add_to_wishlist_btn").addEventListener("click", async function () {
+      const productId = urlParams.get("id"); // Assuming urlParams is defined elsewhere
+      let user_id = localStorage.getItem("user_id");
+      
+      // Fetch product data by ID (replace with your own function)
+      const productDataWithOutUser = await fetchProductById(productId);
+      
+      // Add user_id to product data
+      const productData = {
+          ...productDataWithOutUser,
+          user_id: user_id
+      };
+
+      // Add quantity to product data
+      const quantity = document.getElementById("quantity_value").value;
+      productData.quantity = parseInt(quantity);
+
+      // Get existing wishlist items from local storage
+      let wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
+
+      // Check if the product already exists in the wishlist
+      const existingProductIndex = wishlistItems.findIndex(item => item.id === productData.id);
+      if (existingProductIndex !== -1) {
+          // If the product already exists, update its quantity
+          wishlistItems[existingProductIndex].quantity += productData.quantity;
+      } else {
+          // If the product is not in the wishlist, add it
+          wishlistItems.push(productData);
+      }
+
+      // Save the updated wishlist items to local storage
+      localStorage.setItem("wishlist_items", JSON.stringify(wishlistItems));
+
+      // Provide feedback to the user
+      alert("Product added to wishlist!");
+  });
+}
