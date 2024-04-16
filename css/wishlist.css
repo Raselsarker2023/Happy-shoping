@@ -112,6 +112,8 @@ body {
   }
 
 
+
+  /* wishlist section start form here */
   .Wishlist{
     color: #000;
 
@@ -120,3 +122,8 @@ body {
     width: 100%;
     height: 100vh;
   }
+ /* CSS for wishlist container */
+.wish-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}

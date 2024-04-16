@@ -8,4 +8,6 @@ const cart_count_Span = document.getElementById("cart_count");
 
 cart_count_Span.innerText= cart_item?.length  || 0
 
-console.log("pakhi");
+console.log("O amr jan pakhi");
+
+

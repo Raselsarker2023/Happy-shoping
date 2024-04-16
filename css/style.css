@@ -1,12 +1,10 @@
+
 /* navber section start */
 .main-navbar {
   border-bottom: 1px solid #ccc;
 }
 .main-navbar .top-navbar {
-  /* background-color: #2874f0; */
   background-color: #002c3e;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 .main-navbar .top-navbar .brand-name {
   color: #fff;
@@ -48,11 +46,18 @@
   }
 }
 .btn_size {
-  height: 100%;
-  margin-left: 20px;
+  color: #000;
+  margin-top: 50px;
 }
-
+.search-container{
+  padding-top: 1%;
+}
 /* navber section end */
+
+
+
+
+
 
 /* slider/banner section start */
 
@@ -794,6 +799,4 @@ form input[type="submit"]:focus {
 
 /* footer section end */
 
-/* footer section end */
-/* footer section end */
 

@@ -64,9 +64,9 @@ document
     let old_cart_item = localStorage.getItem("cart_items");
     let parsedOldCartDAta = JSON.parse(old_cart_item)
     let quantity00 = 0
-parsedOldCartDAta?.map(item => {
-  let current = item.quantity
-  quantity00+current
+    parsedOldCartDAta?.map(item => {
+    let current = item.quantity
+    quantity00+current
 })
 
 
