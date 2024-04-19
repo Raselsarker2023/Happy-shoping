@@ -28,6 +28,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
@@ -35,17 +36,19 @@
     <div class="main-navbar shadow-sm sticky-top">
       <div class="top-navbar">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row nav-body">
             <div
               class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block"
             >
               <h5 class="brand-name">Craftkart</h5>
             </div>
-            <div class="col-md-5 my-auto">
-              <form role="search">
+
+            <div class="col-md-5 my-auto search-container">
+              <form role="search" onsubmit="handleSearch(event)">
                 <div class="input-group">
                   <input
-                    type="search"
+                    id="search"
+                    type="text"
                     placeholder="Search your product"
                     class="form-control"
                   />
@@ -55,6 +58,7 @@
                 </div>
               </form>
             </div>
+
             <div class="col-md-5 my-auto">
               <ul class="nav justify-content-end">
                 <li class="nav-item">
@@ -86,19 +90,19 @@
                     </li>
 
                     <li>
-                      <a class="dropdown-item" href="card.html"
+                      <a class="dropdown-item" href="#"
                         ><i class="fa fa-list"></i> My Orders</a
                       >
                     </li>
                     <li>
-                      <a class="nav-link" href="wishlist.html">
-                        <i class="fa fa-heart"></i> Wishlist (<span id='wishlist_count'>0</span>)
-                      </a>
+                      <a class="dropdown-item" href="wishlist.html"
+                        ><i class="fa fa-heart"></i> My Wishlist</a
+                      >
                     </li>
                     <li>
                       <a id="cart-count" class="nav-link" href="card.html">
                         <i class="fa fa-shopping-cart"></i> Cart (<span id='cart_count'>0</span>)
-                      </a>
+                     </a>
                     </li>
                     <li>
                       <a onclick="handlelogOut(event)" class="dropdown-item"
@@ -157,21 +161,21 @@
                   aria-labelledby="navbarDropdown"
                 ></ul>
               </li>
-              
+
               <li class="nav-item">
-                <a class="nav-link" href="#">New Arrivals</a>
+                <a class="nav-link" href="#arrival">New Arrivals</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Featured Products</a>
+                <a class="nav-link" href="#product">Featured Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Electronics</a>
+                <a class="nav-link" href="#shop">Why shop</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Fashions</a>
+                <a class="nav-link" href="#product">Fashions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Accessories</a>
+                <a class="nav-link" href="#seller">Best seller</a>
               </li>
             </ul>
           </div>
@@ -514,8 +518,11 @@
 
     <!-- script file  -->
     <script src="/Js/card.js"></script>
+    <script src="/Js/app.js"></script>
+    <script src="/Js/wishlist.js"></script>
     <script src="/Js/navber.js"></script>
     <script src="/Js/details.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script

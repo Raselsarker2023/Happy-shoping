@@ -1,5 +1,8 @@
 
 /* navber section start */
+.nav-body{
+  padding: 15px !important;
+}
 .main-navbar {
   border-bottom: 1px solid #ccc;
 }
@@ -45,12 +48,14 @@
     padding: 8px 10px;
   }
 }
-.btn_size {
-  color: #000;
-  margin-top: 50px;
-}
+
 .search-container{
   padding-top: 1%;
+}
+.btn_size{
+  height: 38px;
+  margin: 0 !important;
+  background-color: #007bff !important;
 }
 /* navber section end */
 
@@ -73,6 +78,7 @@
   align-items: center;
   position: relative;
   padding: 90px 0 75px 0;
+  overflow: hidden;
 }
 
 .slider_section .row {
@@ -152,7 +158,18 @@
   height: 20px;
   background-color: #f7444e;
 }
-
+.right_img_part{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.overlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(225, 15, 15, 0.5);
+  z-index: 2;
+}
 .slider_bg_box {
   position: absolute;
   top: 0;
@@ -174,6 +191,10 @@
 /* slider/banner section end */
 
 /* why section start */
+.why_section{
+  position: relative;
+  z-index: 30;
+}
 .why_section .box {
   text-align: center;
   margin-top: 45px;
