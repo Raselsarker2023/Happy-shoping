@@ -29,17 +29,6 @@ async function handleProducts (){
     product.description;
 }
 
-// fetch(`https://e-shoping-tkrl.onrender.com/product/list/${productId}`)
-//   .then((response) => response.json())
-//   .then((product) => {
-//     document.getElementById("productImage").src = product.image;
-//     document.getElementById("productName").innerText = product.name;
-//     document.getElementById("productPrice").innerText = `$${product.price}`;
-//     document.getElementById("productDescription").innerText =
-//       product.description;
-//   })
-//   .catch((error) => console.error("Error fetching product details:", error));
-
 
 
 
@@ -100,32 +89,8 @@ document
       console.log("i am insit");
 
     }
-  // add all the fileds
 
-    // fetch("https://e-shoping-tkrl.onrender.com/card/add/", {
-    //   body: JSON.stringify(addToCartData),
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => console.log("add to cart success", result))
-    //   .catch((error) => console.error("add to card data", error));
   });
 
 
 
-
-// Update cart count function
-// const updateCartCount = () => {
-//   let cartItems = JSON.parse(localStorage.getItem("cart_items"));
-//   let totalQuantity = cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0;
-//   document.getElementById("cart_count").innerText = totalQuantity;
-// }
-
-// document.getElementById("add_to_cart_btn").addEventListener("click", function () {
-//   updateCartCount();
-// });
-
-// updateCartCount();
