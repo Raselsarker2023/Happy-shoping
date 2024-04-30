@@ -13,7 +13,7 @@ handleProducts ()
 
 //fetch product data byid
 async function fetchProductById(productId){
-  const  res = await fetch(`https://e-shoping-tkrl.onrender.com/product/list/${productId}`)
+  const  res = await fetch(`https://smart-shoping-whb0.onrender.com/product/list/${productId}`)
   const product = await res.json()
 
 return product;

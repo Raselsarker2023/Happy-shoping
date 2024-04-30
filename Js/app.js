@@ -1,7 +1,10 @@
+
+// NEW PRODUCT SET
+
 let allProducts = [];
 
 const loadProducts = () => {
-  fetch("https://e-shoping-tkrl.onrender.com/product/list/")
+  fetch("https://smart-shoping-whb0.onrender.com/product/list")
     .then((response) => response.json())
     .then((data) => displayProducts(data))
     .catch((error) => console.error("Error fetching products:", error));
@@ -17,9 +20,9 @@ const displayProducts = (productsData) => {
   console.log("data:", data);
   productsContainer.innerHTML = "";
   data?.forEach((product) => {
-    //   .forEach((product) => {
+    
     const card = document.createElement("div");
-    card.classList.add("rasel", "cursor-pointer");
+    card.classList.add("p-cart", "cursor-pointer");
 
     card.innerHTML = `
    
@@ -50,28 +53,51 @@ const displayProducts = (productsData) => {
 
 loadProducts();
 
-// category options start
+
+
+
+
+// category diya product fillter korbo akon.
+
+const loadProductsByCategory = (category) => {
+  // If category is "All", display all products
+  if (category === "All") {
+    displayProducts(allProducts);
+  } else {
+    // Filter products based on the selected category
+    const filteredProducts = allProducts.filter(product => product.category === category);
+    displayProducts(filteredProducts);
+  }
+};
+
+// Function to load categories
 const loadCategories = () => {
-  fetch("https://e-shoping-tkrl.onrender.com/category/category_list")
+  fetch("https://smart-shoping-whb0.onrender.com/category/category_list/")
     .then((res) => res.json())
     .then((data) => {
+      const parent = document.getElementById("drop_category");
       data.forEach((item) => {
-        const parent = document.getElementById("drop_category");
         const li = document.createElement("li");
         li.classList.add("dropdown-item");
-        li.innerText = item?.name;
+        li.innerText = item.name;
+        li.onclick = () => loadProductsByCategory(item.name);
         parent.appendChild(li);
       });
     });
 };
 
+
 loadCategories();
+
+
+
+// Search products by category implementation
 
 const handleSearch = (e) => {
   e.preventDefault();
   const searchValue = document.getElementById("search").value;
   fetch(
-    `https://e-shoping-tkrl.onrender.com/product/list/?search=${
+    `https://smart-shoping-whb0.onrender.com/product/list/?search=${
       searchValue ? searchValue : ""
     }`
   )
@@ -83,31 +109,67 @@ const handleSearch = (e) => {
     .catch((error) => console.error("Error fetching products:", error));
 };
 
-// const loadReview = () => {
-//     fetch("https://e-shoping-tkrl.onrender.com/product/review/list/")
-//     .then((res)=>res.json())
-//     .then((data) => displayReview(data));
-// };
-
-// const displayReview = (reviews) => {
-//     reviews.forEach((review) => {
-//         const parent = getElementById("review-container");
-//         const div = document.createElement("div");
-//         div.classList.add("review-card");
-//         div.innerHTML = `
-//         <img src="${review.images}" alt="review" />
-//                 <h4>${review.reviewer}</h4>
-//                 <p>
-//                     ${review.body.slice(0, 150)}
-//                 </p>
-//                 <h6>${review.rating}</h6>
-//         `;
-//         parent.appendChild(div)
-//     });
-// };
-
-// loadCategories();
-// loadReview();
 
 
-const add_to_wishlist = () =>
+// Review section implement here
+
+const loadReviews = () => {
+  fetch("https://smart-shoping-whb0.onrender.com/product/review/")
+  .then((res)=>res.json())
+  .then((data) => displayReviews(data));
+};
+
+const displayReviews = (reviews) => {
+  const parent = document.getElementById("review-container");
+  parent.innerHTML = ""; // Clear existing reviews before appending new ones
+  reviews.forEach((review) => {
+      const div = document.createElement("div");
+      div.classList.add("review-card");
+      div.innerHTML = `
+      <img src="${review.images}" alt="review" />
+      <h4>${review.reviewer}</h4>
+      <p>${review.body.slice(0, 150)}</p>
+      <h6>${review.rating}</h6>
+      `;
+      parent.appendChild(div);
+  });
+};
+
+const submitReview = (event) => {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+  const rating = document.getElementById("rating").value;
+
+  const reviewData = {
+      reviewer: name,
+      email: email,
+      body: message,
+      rating: rating
+  };
+
+  fetch("https://smart-shoping-whb0.onrender.com/product/review/", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+  })
+  .then((res) => res.json())
+  .then((data) => {
+      console.log("Review added successfully:", data);
+      loadReviews(); // Reload reviews after adding a new one
+  })
+  .catch((error) => {
+      console.error("Error adding review:", error);
+  });
+};
+
+document.getElementById("review-form").addEventListener("submit", submitReview);
+
+// Load reviews when the page loads
+document.addEventListener("DOMContentLoaded", loadReviews);
+
+
+

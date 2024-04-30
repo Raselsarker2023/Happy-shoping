@@ -16,7 +16,7 @@ const handleProfile = (event) => {
         confirm_password,
     };
 
-    fetch(`https://e-shoping-tkrl.onrender.com/users/${user_id}`, {
+    fetch(`https://smart-shoping-whb0.onrender.com/users/${user_id}`, {
             method: "PUT", 
             headers: { "content-type": "application/json" },
             body: JSON.stringify(info),

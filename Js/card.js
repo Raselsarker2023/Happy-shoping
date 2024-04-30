@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const apiUrl = "https://e-shoping-tkrl.onrender.com/card/add/";
+  const apiUrl = "https://smart-shoping-whb0.onrender.com/cart/add/";
 
   // Fetch Cart Items
   function fetchCartItems() {
