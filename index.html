@@ -604,7 +604,6 @@
       >
         <h1>Best seller Products</h1>
         <ul class="slider-container py-4 pt-16">
-          
           <li class="">
             <div class="card shadow h-100">
               <div class="ratio ratio-16x9 card_img">
@@ -614,7 +613,7 @@
                 />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Smart watch</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -624,7 +623,6 @@
               </div>
             </div>
           </li>
-
           <li class="">
             <div class="card shadow h-100">
               <div class="ratio ratio-16x9 card_img">
@@ -651,7 +649,7 @@
                 />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Smart watch</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -670,7 +668,7 @@
                 />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Smart watch</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -686,7 +684,7 @@
                 <img src="https://m.media-amazon.com/images/I/718zEa-9sWL._AC_UY218_.jpg" loading="lazy" alt="..." />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Asus Laptop</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -702,7 +700,7 @@
                 <img src="https://m.media-amazon.com/images/I/61sOops-WqL._AC_UY218_.jpg" loading="lazy" alt="..." />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Headphone</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -722,7 +720,7 @@
                 />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Iphone 15 pro</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -741,7 +739,7 @@
                 />
               </div>
               <div class="card-body p-3 p-xl-5">
-                <h3 class="card-title h5">Wall Television</h3>
+                <h3 class="card-title h5">Men T-shirt</h3>
                 <p class="card-text">
                   Some quick example text to build on the card title.
                 </p>
@@ -1048,6 +1046,7 @@
     <script src="/Js/navber.js"></script>
     <script src="/Js/wishlist.js"></script>
     <script src="/Js/logout.js"></script>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
       crossorigin="anonymous"
@@ -1067,177 +1066,116 @@
     -->
 
     <script>
-              
-        let allProducts = [];
+      let allProducts = [];
 
-        const loadProducts = () => {
-          fetch("https://smart-shoping-whb0.onrender.com/product/list")
-            .then((response) => response.json())
-            .then((data) => displayProducts(data))
-            .catch((error) => console.error("Error fetching products:", error));
-        };
+      const loadProducts = () => {
+        fetch("https://e-shoping-tkrl.onrender.com/product/list/")
+          .then((response) => response.json())
+          .then((data) => displayProducts(data))
+          .catch((error) => console.error("Error fetching products:", error));
+      };
 
-        const displayProducts = (productsData) => {
-          let data = productsData;
-          if (allProducts.length > 0) {
-            data = allProducts;
-          }
-          const productsContainer = document.getElementById("products");
+      const displayProducts = (productsData) => {
+        let data = productsData;
+        if (allProducts.length > 0) {
+          data = allProducts;
+        }
+        const productsContainer = document.getElementById("products");
 
-          console.log("data:", data);
-          productsContainer.innerHTML = "";
-          data?.forEach((product) => {
-            
-            const card = document.createElement("div");
-            card.classList.add("p-cart", "cursor-pointer");
+        console.log("data:", data);
+        productsContainer.innerHTML = "";
+        data?.forEach((product) => {
+          //   .forEach((product) => {
+          const card = document.createElement("div");
+          card.classList.add("cursor-pointer");
 
-            card.innerHTML = `
-          
-            <div  class="card-shadow ">
-            <img src="${product.image}" class="card-img-top" loading="lazy" alt="${
-              product.name
-            }">
-            <div class="card-body d-flex flex-column flex-md-row">
-              <div class="flex-grow-1">
-              <strong><p >${product.name}</p></strong>
-                <p class="card-text">${product.description}</p>
-                <div class="card-text">$${product.price}</div>
-                <p class="card-rating">$${product.rating}</p>
-                <div class="card-text"><del>$${product.price}</del> ${parseInt(
-              product.price - product.price * 0.15
-            )} 15%off</div>
-              </div>
-            </div>
-          </div>
-          
-              `;
-            card.addEventListener("click", () => {
-              window.location.href = `details.html?id=${product.id}`;
-            });
-            productsContainer.appendChild(card);
+          card.innerHTML = `
+   
+    <div  class="card shadow ">
+    <img src="${product.image}" class="card-img-top" loading="lazy" alt="${
+            product.name
+          }">
+    <div class="card-body d-flex flex-column flex-md-row">
+      <div class="flex-grow-1">
+      <strong><p >${product.name}</p></strong>
+        <p class="card-text">${product.description}</p>
+        <div class="card-text">$${product.price}</div>
+        <p class="card-rating">$${product.rating}</p>
+        <div class="card-text"><del>$${product.price}</del> ${parseInt(
+            product.price - product.price * 0.15
+          )} 15%off</div>
+      </div>
+    </div>
+  </div>
+   
+      `;
+          card.addEventListener("click", () => {
+            window.location.href = `details.html?id=${product.id}`;
           });
-        };
+          productsContainer.appendChild(card);
+        });
+      };
 
-        loadProducts();
+      loadProducts();
 
-
-
-
-
-        // category diya product fillter korbo akon.
-
-        const loadProductsByCategory = (category) => {
-          // If category is "All", display all products
-          if (category === "All") {
-            displayProducts(allProducts);
-          } else {
-            // Filter products based on the selected category
-            const filteredProducts = allProducts.filter(product => product.category === category);
-            displayProducts(filteredProducts);
-          }
-        };
-
-        // Function to load categories
-        const loadCategories = () => {
-          fetch("https://smart-shoping-whb0.onrender.com/category/category_list/")
-            .then((res) => res.json())
-            .then((data) => {
-              const parent = document.getElementById("drop_category");
-              data.forEach((item) => {
-                const li = document.createElement("li");
-                li.classList.add("dropdown-item");
-                li.innerText = item.name;
-                li.onclick = () => loadProductsByCategory(item.name);
-                parent.appendChild(li);
-              });
-            });
-        };
-
-
-        loadCategories();
-
-
-
-        // Search products by category implementation
-
-        const handleSearch = (e) => {
-          e.preventDefault();
-          const searchValue = document.getElementById("search").value;
-          fetch(
-            `https://smart-shoping-whb0.onrender.com/product/list/?search=${
-              searchValue ? searchValue : ""
-            }`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              allProducts = data;
-              displayProducts();
-            })
-            .catch((error) => console.error("Error fetching products:", error));
-        };
-
-
-
-        // Review section implement here
-
-        const loadReviews = () => {
-          fetch("https://smart-shoping-whb0.onrender.com/product/review/")
-          .then((res)=>res.json())
-          .then((data) => displayReviews(data));
-        };
-
-        const displayReviews = (reviews) => {
-          const parent = document.getElementById("review-container");
-          parent.innerHTML = ""; // Clear existing reviews before appending new ones
-          reviews.forEach((review) => {
-              const div = document.createElement("div");
-              div.classList.add("review-card");
-              div.innerHTML = `
-              <img src="${review.images}" alt="review" />
-              <h4>${review.reviewer}</h4>
-              <p>${review.body.slice(0, 150)}</p>
-              <h6>${review.rating}</h6>
-              `;
-              parent.appendChild(div);
-          });
-        };
-
-        const submitReview = (event) => {
-          event.preventDefault();
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const message = document.getElementById("message").value;
-          const rating = document.getElementById("rating").value;
-
-          const reviewData = {
-              reviewer: name,
-              email: email,
-              body: message,
-              rating: rating
-          };
-
-          fetch("https://smart-shoping-whb0.onrender.com/product/review/", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify(reviewData),
-          })
+      // category options start
+      const loadCategories = () => {
+        fetch("https://e-shoping-tkrl.onrender.com/category/category_list")
           .then((res) => res.json())
           .then((data) => {
-              console.log("Review added successfully:", data);
-              loadReviews(); // Reload reviews after adding a new one
-          })
-          .catch((error) => {
-              console.error("Error adding review:", error);
+            data.forEach((item) => {
+              const parent = document.getElementById("drop_category");
+              const li = document.createElement("li");
+              li.classList.add("dropdown-item");
+              li.innerText = item?.name;
+              parent.appendChild(li);
+            });
           });
-        };
+      };
 
-        document.getElementById("review-form").addEventListener("submit", submitReview);
+      loadCategories();
 
-        // Load reviews when the page loads
-        document.addEventListener("DOMContentLoaded", loadReviews);
+      const handleSearch = (e) => {
+        e.preventDefault();
+        const searchValue = document.getElementById("search").value;
+        fetch(
+          `https://e-shoping-tkrl.onrender.com/product/list/?search=${
+            searchValue ? searchValue : ""
+          }`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            allProducts = data;
+            displayProducts();
+          })
+          .catch((error) => console.error("Error fetching products:", error));
+      };
 
+      // const loadReview = () => {
+      //     fetch("https://e-shoping-tkrl.onrender.com/product/review/list/")
+      //     .then((res)=>res.json())
+      //     .then((data) => displayReview(data));
+      // };
+
+      // const displayReview = (reviews) => {
+      //     reviews.forEach((review) => {
+      //         const parent = getElementById("review-container");
+      //         const div = document.createElement("div");
+      //         div.classList.add("review-card");
+      //         div.innerHTML = `
+      //         <img src="${review.images}" alt="review" />
+      //                 <h4>${review.reviewer}</h4>
+      //                 <p>
+      //                     ${review.body.slice(0, 150)}
+      //                 </p>
+      //                 <h6>${review.rating}</h6>
+      //         `;
+      //         parent.appendChild(div)
+      //     });
+      // };
+
+      // loadCategories();
+      // loadReview();
     </script>
   </body>
 </html>
