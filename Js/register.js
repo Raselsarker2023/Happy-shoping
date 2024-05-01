@@ -52,7 +52,7 @@ const handleRegistration = async (event) => {
         document.getElementById("error").innerText =
           "Successfully Registered your Account !";
           document.getElementById("contact_form").reset(); // Change this line
-          window.location.href = "/login.html";
+          window.location.href = "https://raselsarker11.github.io/Happy-shoping/login.html";
       }
     } catch (error) {
       console.error("Error during fetch:", error);
