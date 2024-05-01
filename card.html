@@ -219,6 +219,7 @@
             <div class="cart-item">
           
             </div>
+            
 
           </div>
         </div>
@@ -235,11 +236,11 @@
             <h5>$<span id="tax-amount">0</span></h5>
             <h5>$<span id="total-price">1,278</span></h5>
           </div>
-        </div>
-        <div class="col-md-12 pt-4 pb-4">
-          <form action="/create-checkout-session" method="POST">
-            <button class="btn btn-primary check-out" type="submit" id="checkout-button">Checkout</button>
-          </form>
+          <div class="col-md-12 pt-4">
+            <form action="/create-checkout-session" method="POST">
+              <button class="btn btn-primary check-out" type="submit" id="checkout-button">Checkout</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -290,18 +291,35 @@
                 <div class="img_container">
                   <div class="img-box">
                     <div class="img_box-inner">
-                      <img src="images/client.jpg" alt="" />
+                      <img src="images/customer4.jpg" alt="" />
                     </div>
                   </div>
                 </div>
                 <div class="detail-box">
-                  <h5>Anna Trevor</h5>
+                  <h5>Rasel sarker</h5>
                   <h6>Customer</h6>
                   <p>
-                    Dignissimos reprehenderit repellendus nobis error quibusdam?
-                    Atque animi sint unde quis reprehenderit, et, perspiciatis,
-                    debitis totam est deserunt eius officiis ipsum ducimus ad
-                    labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                    Best product , best service overall amazing.<br />
+                    ⭐⭐⭐⭐⭐
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box col-lg-10 mx-auto">
+                <div class="img_container">
+                  <div class="img-box">
+                    <div class="img_box-inner">
+                      <img src="images/rasel_3.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-box">
+                  <h5>Rasel sarker</h5>
+                  <h6>Customer</h6>
+                  <p>
+                    Best product , best service overall amazing.<br />
+                    ⭐⭐⭐⭐⭐
                   </p>
                 </div>
               </div>
@@ -319,10 +337,8 @@
                   <h5>Anna Trevor</h5>
                   <h6>Customer</h6>
                   <p>
-                    Dignissimos reprehenderit repellendus nobis error quibusdam?
-                    Atque animi sint unde quis reprehenderit, et, perspiciatis,
-                    debitis totam est deserunt eius officiis ipsum ducimus ad
-                    labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                    Best product , best service overall amazing.<br />
+                    ⭐⭐⭐⭐⭐.
                   </p>
                 </div>
               </div>
@@ -332,18 +348,35 @@
                 <div class="img_container">
                   <div class="img-box">
                     <div class="img_box-inner">
-                      <img src="images/client.jpg" alt="" />
+                      <img src="images/Customer7.jpg" alt="" />
                     </div>
                   </div>
                 </div>
                 <div class="detail-box">
-                  <h5>Anna Trevor</h5>
+                  <h5>Devid joe</h5>
                   <h6>Customer</h6>
                   <p>
-                    Dignissimos reprehenderit repellendus nobis error quibusdam?
-                    Atque animi sint unde quis reprehenderit, et, perspiciatis,
-                    debitis totam est deserunt eius officiis ipsum ducimus ad
-                    labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                    Best product , best service overall amazing.<br />
+                    ⭐⭐⭐⭐⭐.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box col-lg-10 mx-auto">
+                <div class="img_container">
+                  <div class="img-box">
+                    <div class="img_box-inner">
+                      <img src="images/customer6.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-box">
+                  <h5>Rachine Rabindra</h5>
+                  <h6>Customer</h6>
+                  <p>
+                    Best product , best service overall amazing.<br />
+                    ⭐⭐⭐⭐⭐.
                   </p>
                 </div>
               </div>
@@ -537,6 +570,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 
+    
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const apiUrl = "https://smart-shoping-whb0.onrender.com/cart/add/";
@@ -710,7 +744,6 @@
       
       
       
-      
       // add to wishlist function.
       
       const add_to_wishlist = () => {
@@ -752,6 +785,13 @@
         });
       }
       
+
+      // cart item count here.
+      let cart_item = JSON.parse(localStorage.getItem("cart_items"))
+      const cart_count_Span = document.getElementById("cart_count");
+      cart_count_Span.innerText= cart_item?.length  || 0
+      console.log("Cart item count succesfully.");
+
     </script>
   </body>
 </html>

@@ -416,7 +416,7 @@
     
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const apiUrl = "https://smart-shoping-whb0.onrender.com/cart/add/";
+        const apiUrl = "https://smart-shoping-whb0.onrender.com/cart/wish/";
       
         // Fetch Cart Items
         function fetchCartItems() {
@@ -470,7 +470,15 @@
         const wishlistCountSpan = document.getElementById("wishlist_count");
         wishlistCountSpan.innerText = wishlistItems.length || 0;
       
-        console.log("Jan pakhi");
+        console.log("Add to wishlist Item");
+
+
+
+      // cart item count here.
+      let cart_item = JSON.parse(localStorage.getItem("cart_items"))
+      const cart_count_Span = document.getElementById("cart_count");
+      cart_count_Span.innerText= cart_item?.length  || 0
+      console.log("Cart item count succesfully.");
       
     </script>
 

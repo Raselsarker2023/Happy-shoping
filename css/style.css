@@ -329,8 +329,12 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  height: 410px;
+  height: 430px;
   width: 280px;
+}
+
+.nodata{
+  display: none;
 }
 /* product section end */
 
@@ -383,7 +387,7 @@
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .card-body {

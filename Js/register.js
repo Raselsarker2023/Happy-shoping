@@ -50,8 +50,8 @@ const handleRegistration = async (event) => {
       const data = await response.json();
       if (data?.id) {
         document.getElementById("error").innerText =
-          "Successfully Registered your Account !";
-          document.getElementById("contact_form").reset(); // Change this line
+          "Congratulations! Your Account Created Successfully.";
+          document.getElementById("contact_form").reset();
           window.location.href = "https://raselsarker11.github.io/Happy-shoping/login.html";
       }
     } catch (error) {
