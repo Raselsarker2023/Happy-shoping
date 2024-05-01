@@ -302,9 +302,10 @@
 }
 .heading_part {
   align-items: center;
-  color: #e105c3;
+  color: #002c3e;
   font-size: 40px;
   padding-top: 3%;
+  font-weight: bold;
 }
 .product-name {
   padding-top: 4%;
@@ -318,6 +319,18 @@
  display: grid;
  grid-template-columns: repeat(5, 1fr);
  gap: 20px;
+}
+
+.card-shadow{
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 410px;
+  width: 280px;
 }
 /* product section end */
 
