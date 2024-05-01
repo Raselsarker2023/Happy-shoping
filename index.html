@@ -1069,7 +1069,7 @@
       let allProducts = [];
 
       const loadProducts = () => {
-        fetch("https://e-shoping-tkrl.onrender.com/product/list/")
+        fetch("https://smart-shoping-whb0.onrender.com/product/list/")
           .then((response) => response.json())
           .then((data) => displayProducts(data))
           .catch((error) => console.error("Error fetching products:", error));
@@ -1120,7 +1120,7 @@
 
       // category options start
       const loadCategories = () => {
-        fetch("https://e-shoping-tkrl.onrender.com/category/category_list")
+        fetch("https://smart-shoping-whb0.onrender.com/category/category_list")
           .then((res) => res.json())
           .then((data) => {
             data.forEach((item) => {
@@ -1139,7 +1139,7 @@
         e.preventDefault();
         const searchValue = document.getElementById("search").value;
         fetch(
-          `https://e-shoping-tkrl.onrender.com/product/list/?search=${
+          `https://smart-shoping-whb0.onrender.com/product/list/?search=${
             searchValue ? searchValue : ""
           }`
         )
@@ -1152,7 +1152,7 @@
       };
 
       // const loadReview = () => {
-      //     fetch("https://e-shoping-tkrl.onrender.com/product/review/list/")
+      //     fetch("https://smart-shoping-whb0.onrender.com/product/review/list/")
       //     .then((res)=>res.json())
       //     .then((data) => displayReview(data));
       // };
@@ -1176,6 +1176,8 @@
 
       // loadCategories();
       // loadReview();
+      
     </script>
+
   </body>
 </html>
