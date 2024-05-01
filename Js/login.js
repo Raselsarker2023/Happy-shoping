@@ -5,12 +5,12 @@ const handleLogin = (event) => {
   event.preventDefault();
 
   // Get username and password values from the form
-  const username = getValue("login-username");
+  const email = getValue("login-email");
   const password = getValue("login-password");
 
   // Construct the info object with username and password
   const info = {
-      username,
+      email,
       password,
   };
 
@@ -31,12 +31,12 @@ const handleLogin = (event) => {
           console.log(data);
 
           
-          if(data.token && data.user_id){
-              localStorage.setItem("token", data.token);
-              localStorage.setItem("user_id", data.user_id);
+          if(data.access && data.refresh){
+              localStorage.setItem("token", data.access);
+              localStorage.setItem("refresh", data.refresh);
               window.location.href = "https://raselsarker11.github.io/Happy-shoping/index.html";
 
-              console.log(data.user_id);
+              console.log(data.access);
           }
           
       })

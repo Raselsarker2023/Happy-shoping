@@ -4,7 +4,7 @@
 let allProducts = [];
 
 const loadProducts = () => {
-  fetch("https://smart-shoping-whb0.onrender.com/product/list")
+  fetch("https://smart-shoping-whb0.onrender.com/product/list/")
     .then((response) => response.json())
     .then((data) => displayProducts(data))
     .catch((error) => console.error("Error fetching products:", error));

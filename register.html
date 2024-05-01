@@ -203,7 +203,7 @@
                         <label class="col-md-4 control-label">Username</label>
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
-                                <input id="Username" name="user_name" placeholder="" required class="form-control" type="username" required>
+                                <input id="Username" name="name" placeholder="" required class="form-control" type="username" required>
                             </div>
                         </div>
                     </div>
@@ -497,7 +497,7 @@
     -->
 
 
-    <!-- <script>
+    <script>
        // register form start
       const handleRegistration = async (event) => {
         event.preventDefault();
@@ -564,7 +564,8 @@
         return document.getElementById(id).value;
       };
 
-    </script> -->
+      document.getElementById("registrationForm").addEventListener("submit", handleRegistration);
+    </script>
     
 </body>
 </html>

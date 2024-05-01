@@ -1,4 +1,4 @@
-// // register form start
+// register form start
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -23,7 +23,7 @@ const handleRegistration = async (event) => {
 
   if (password !== confirm_password) {
     document.getElementById("error").innerText = "Passwords do not match.";
-    // alert("Passwords do not match.");
+    alert("Passwords do not match.");
     return;
   }
 
@@ -34,7 +34,7 @@ const handleRegistration = async (event) => {
   ) {
     document.getElementById("error").innerText =
       "Password must be at least eight characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
-    return; // Exit the function early
+    return; 
   }
 
   try {
@@ -51,11 +51,12 @@ const handleRegistration = async (event) => {
       if (data?.id) {
         document.getElementById("error").innerText =
           "Successfully Registered your Account !";
-          window.location.href = "https://raselsarker11.github.io/Happy-shoping/login.html";
+          document.getElementById("contact_form").reset(); // Change this line
+          window.location.href = "/login.html";
       }
     } catch (error) {
       console.error("Error during fetch:", error);
-      // Display a more user-friendly error message
+      // Display user-friendly error message
       document.getElementById("error").innerText =
         "An error occurred. Please try again later.";
    }
@@ -66,7 +67,6 @@ const getValue = (id) => {
   return document.getElementById(id).value;
 };
 
-
+document.getElementById("contact_form").addEventListener("submit", handleRegistration); // Change this line
 
 // register form end
-
