@@ -79,6 +79,7 @@
   position: relative;
   padding: 90px 0 75px 0;
   overflow: hidden;
+  height: 95vh;
 }
 
 .slider_section .row {
