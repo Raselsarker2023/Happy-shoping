@@ -54,4 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
   const wishlistCountSpan = document.getElementById("wishlist_count");
   wishlistCountSpan.innerText = wishlistItems.length || 0;
 
-  console.log("Jan pakhi");
+  console.log("Add items to wishlist");
