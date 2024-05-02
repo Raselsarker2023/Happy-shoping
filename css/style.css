@@ -329,13 +329,11 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  height: 600px;
+  height: 500px;
   width: 280px;
 }
 
-.nodata{
-  display: none;
-}
+
 /* product section end */
 
 
