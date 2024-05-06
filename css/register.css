@@ -62,25 +62,26 @@
   justify-content: center;
   align-items: center;
   height: 1000px; 
-  background-color: #f8f9fa;
+  background-color: #EFFDF5;
 }
 .inputGroupContainer{
   width: 100%;
 }
 
 .register_btn {
-  background-color: #d508f4; 
+  width: 530px !important;
+  background-color: #04AA6D; 
   color:white; 
   padding: 10px 20px; 
   border: none; 
   border-radius: 5px; 
   cursor: pointer;
-  text-decoration-color: #d508f4;
+  
  
 }
 
 .register_btn:hover {
-  background-color: blueviolet;
+  background-color: rgb(8, 214, 183);
   float: white;
   font-size: large;
   color:white;
@@ -110,7 +111,7 @@
 #rrrrrrr {
   font-size: 40px;
   font-weight: bold;
-  color: #040d46;
+  color: #04AA6D;
 }
 #contact_form{
   padding-right: 20%;

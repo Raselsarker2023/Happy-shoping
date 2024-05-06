@@ -65,8 +65,14 @@ body {
   .wish-section h1 {
     text-align: center;
   }
-  .wish-section {
-    height: 80vh;
+
+  #wishlist_items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Optional: Adjust as needed */
   }
   
   #content{
@@ -127,6 +133,11 @@ body {
 
 
   /* wishlist section start form here */
+  /* Custom CSS for Wishlist Items */
+
+
+
+
   .wish-continer {
     display: flex;
     flex-wrap: wrap;

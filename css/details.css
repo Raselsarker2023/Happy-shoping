@@ -59,6 +59,16 @@
 
 /* contact form start */
 
+/* details page section start */
+.detail-page {
+  background-color: #EFFDF5;
+}
+.detailbtn{
+  background-color: #04AA6D !important;
+}
+
+/* details page section end */
+
 .accordion-body{
     display: flex;
   }
@@ -144,8 +154,18 @@
   }
   .heading_centr{
     font-size: 35px;
-    color: #13AFBC;
+    color: #04AA6D;
+    font-weight: bold;
   }
+  .messages {
+    width: 525px !important;
+    background-color: #04AA6D !important;
+  }
+
+  .messages:hover {
+    background-color: #04AA6D !important;
+  }
+
   
   
   /* contact form end */
