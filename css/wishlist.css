@@ -55,6 +55,19 @@ body {
   }
   
   /* Styling for wishlist page */
+  .Wishlist {
+    font-weight: bold;
+    font-size: 60px;
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .wish-section h1 {
+    text-align: center;
+  }
+  .wish-section {
+    height: 80vh;
+  }
   
   #content{
     display: grid;

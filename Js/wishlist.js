@@ -25,33 +25,44 @@ document.addEventListener("DOMContentLoaded", function () {
     wishlistItems.push(newItem);
     localStorage.setItem("wishlist_items", JSON.stringify(wishlistItems));
     alert("Product added to wishlist!");
+    updateWishlistCount(); // Update wishlist count in the navbar
   }
 
-  // Event Listeners
-  document
-    .getElementById("add_to_wishlist")
-    .addEventListener("click", function () {
-      const productName = document.getElementById("productName").innerText;
-      const productPrice = document.getElementById("productPrice").innerText;
-      const productImage = document.getElementById("productImage").src;
-      console.log("productName: ", productName);
-      addToWishlist(productName, productPrice, productImage);
-    });
-
-  document.querySelectorAll(".btn-danger").forEach((button) => {
-    button.addEventListener("click", function () {
-      // Handle other button clicks if needed
-    });
+  // Event Listener for Add to Wishlist button
+  document.getElementById("add_to_wishlist").addEventListener("click", function () {
+    const productName = document.getElementById("productName").innerText;
+    const productPrice = document.getElementById("productPrice").innerText;
+    const productImage = document.getElementById("productImage").src;
+    addToWishlist(productName, productPrice, productImage);
   });
+
+  // Function to update wishlist count in the navbar
+  function updateWishlistCount() {
+    let wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
+    const wishlistCountSpan = document.getElementById("wishlist_count");
+    wishlistCountSpan.innerText = wishlistItems.length || 0;
+  }
+
+  // Function to display wishlist items on the wishlist page
+  function displayWishlistItems() {
+    let wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
+    const wishlistContainer = document.getElementById("wishlist_items");
+    wishlistContainer.innerHTML = ""; // Clear the container before adding new items
+
+    wishlistItems.forEach((item, index) => {
+      const wishlistItemHTML = `
+        <div class="card row wish-container" style="width: 18rem;">
+          <img class="card-img-top" src="${item.image}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <h5 class="card-title">${item.price}</h5>
+          </div>
+        </div>
+      `;
+      wishlistContainer.insertAdjacentHTML('beforeend', wishlistItemHTML);
+    });
+  }
+
+  displayWishlistItems(); // Display wishlist items on page load
+  updateWishlistCount(); // Update wishlist count in the navbar
 });
-
-
-
-
-
-  // Update wishlist count displayed on the webpage
-  let wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
-  const wishlistCountSpan = document.getElementById("wishlist_count");
-  wishlistCountSpan.innerText = wishlistItems.length || 0;
-
-  console.log("Add items to wishlist");

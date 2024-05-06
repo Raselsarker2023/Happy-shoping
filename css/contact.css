@@ -166,7 +166,22 @@ form input[type="submit"]:focus {
   font-size: 35px;
   color: #13AFBC;
 }
-
+.ppp {
+  background-color: #EFFDF5;
+}
+.reg-login{
+  width: 180px !important;
+  border-radius: 20px;
+  border: 1px solid rgb(2, 206, 121);
+  background-color: #D9EEE1;
+}
+.reg-login .navbar-nav .k {
+  width: 100px !important;
+  border-radius: 18px;
+  border: 1px solid rgb(2, 206, 121);
+  background-color: #04AA6D;
+  color: white;
+}
 
 /* contact form end */
 

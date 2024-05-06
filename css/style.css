@@ -57,6 +57,23 @@
   margin: 0 !important;
   background-color: #007bff !important;
 }
+.reg-login{
+  width: 180px !important;
+  border-radius: 20px;
+  border: 1px solid rgb(2, 206, 121);
+  background-color: #D9EEE1;
+  color: white;
+}
+.reg-login .navbar-nav .k {
+  width: 100px !important;
+  border-radius: 18px;
+  border: 1px solid rgb(2, 206, 121);
+  background-color: #04AA6D;
+  color: white;
+}
+.reg-login .navbar-nav .L {
+  color: hsl(0, 23%, 3%);
+}
 /* navber section end */
 
 

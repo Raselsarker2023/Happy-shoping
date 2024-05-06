@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateItemTotal(product, quantity, price) {
     const itemTotal = document.getElementById(product + "-total");
     itemTotal.innerText = quantity * price;
-    calculateTotal(); // Call calculateTotal() after updating the item total
+    calculateTotal();
   }
 
   // Calculate Total
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".btn-danger").forEach((button) => {
     button.addEventListener("click", function () {
       // Remove item from the cart
-      // Recalculate total
     });
   });
 
@@ -176,7 +175,7 @@ async function removeProduct(id) {
 const add_to_wishlist = () => {
   document.getElementById("add_to_wishlist_btn").addEventListener("click", async function () {
       const productId = urlParams.get("id"); // Assuming urlParams is defined elsewhere
-      let user_id = localStorage.getItem("user_id");
+      let access = localStorage.getItem("access");
       
       // Fetch product data by ID (replace with your own function)
       const productDataWithOutUser = await fetchProductById(productId);
@@ -184,7 +183,7 @@ const add_to_wishlist = () => {
       // Add user_id to product data
       const productData = {
           ...productDataWithOutUser,
-          user_id: user_id
+          access: access
       };
 
       // Add quantity to product data
