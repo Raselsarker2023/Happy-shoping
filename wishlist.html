@@ -208,14 +208,20 @@
 
     <!-- wishlist section start -->
     <div class="container wish-section">
+      <h1 class="my-4 Wishlist">Wishlist</h1>
+      <div id="wishlist_items" class="row">
+          <!-- Wishlist items will be displayed here -->
+      </div>
+    </div>
+
+    <!-- <div class="container wish-section">
       <h1 class="my-4 Wishlist">My Wishlist</h1>
       <div
         id="wishlist_items"
         class="card row wish-continer"
         style="width: 18rem"
       ></div>
-
-    </div>
+    </div> -->
     <!-- wishlist section end -->
 
 
@@ -378,11 +384,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 
-    <script>
+
+
+
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Function to fetch and display wishlist items
             function displayWishlistItems() {
-                const wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
+                const wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
                 const wishlistContainer = document.getElementById("wishlist_items");
     
                 // Clear the container before adding new items
@@ -394,7 +403,7 @@
                 } else {
                     wishlistItems.forEach((item, index) => {
                         const wishlistItemHTML = `
-                            <div class="col-md-4">
+                            <div class="col-md-4 wishgap">
                                 <div class="product-item">
                                     <img src="${item.image}" alt="Product Image" class="product-image">
                                     <h3>${item.name}</h3>
@@ -427,6 +436,8 @@
                 localStorage.setItem("wishlist_items", JSON.stringify(wishlistItems));
             }
         });
-    </script>
+
+    </script> -->
+    
   </body>
 </html>
