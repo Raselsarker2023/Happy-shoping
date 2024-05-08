@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fetch Cart Items
   function fetchCartItems() {
-    fetch(apiUrl)
+    fetch(apiUrl,{
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(),
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -173,7 +177,7 @@ async function removeProduct(id) {
 // add to wishlist function.
 
 const add_to_wishlist = () => {
-  document.getElementById("add_to_wishlist_btn").addEventListener("click", async function () {
+  document.getElementById("add_to_wishlist").addEventListener("click", async function () {
       const productId = urlParams.get("id"); // Assuming urlParams is defined elsewhere
       let access = localStorage.getItem("access");
       

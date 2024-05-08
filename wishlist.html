@@ -391,7 +391,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             // Function to fetch and display wishlist items
             function displayWishlistItems() {
-                const wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+                const wishlistItems = JSON.parse(localStorage.getItem("wishlist_items")) || [];
                 const wishlistContainer = document.getElementById("wishlist_items");
     
                 // Clear the container before adding new items

@@ -67,7 +67,7 @@ body {
   }
   .wish-section {
     text-align: center;
-    height: 100vh;
+    /* height: 100vh; */
     width: 1000px;
   }
   .wishgap{

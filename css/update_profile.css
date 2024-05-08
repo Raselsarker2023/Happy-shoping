@@ -1,4 +1,7 @@
 /* navber start form here */
+body{
+  background-color: #EFFDF5;
+}
 .main-navbar{
     border-bottom: 1px solid #ccc;
   }
@@ -57,6 +60,13 @@
   
   /* new new update profile form start */
   
+  .update-section{
+    height: 80vh;
+  }
+  .form-section{
+    width: 400px;
+    height: 60vh;
+  }
     .img-account-profile {
         height: 10rem;
     }
@@ -117,6 +127,10 @@
       text-transform: lowercase;
     }
   
+
+    .btttn{
+      background-color: green !important;
+    }
   /* new update profile form end */
   
   
@@ -126,6 +140,7 @@
   /* subscribe section start */
   .subscribe_section {
     text-align: center;
+   
   }
   
   .subscribe_section .box {
